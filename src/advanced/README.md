@@ -1,6 +1,6 @@
-# Module Bonus — Tayba
+# Module Bonus — Abdou Aziz
 
-⚠️ **Priorité basse** : à faire seulement quand le socle (RAG + éval) tourne — et surtout **après avoir livré l'ingestion du corpus** (ta tâche prioritaire, `src/ingestion/`). En attendant, tu peux aussi aider Khadidiatou sur les questions d'évaluation.
+⚠️ **Priorité basse** : à faire seulement quand le socle (RAG + éval) tourne. En attendant, aide sur le socle : le corpus avec Tayba (`src/ingestion/`) ou les questions d'évaluation avec Khadidiatou.
 
 **Trois fonctionnalités « pour aller plus loin » (au moins une, idéalement les trois) :**
 

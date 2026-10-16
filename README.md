@@ -25,7 +25,7 @@ Sources **publiques** uniquement, citées dans le rapport : Guide des démarches
 | Fatima | Embeddings + base vectorielle | `src/embeddings/` |
 | Khadidiatou | Évaluation | `src/evaluation/`, `eval/` |
 | Khadidiatou + Tayba | Rapport | `docs/` |
-| Tayba | Bonus (si le temps le permet) | `src/advanced/` |
+| Abdou Aziz | Bonus (si le temps le permet) | `src/advanced/` |
 
 ## 🚀 Installation & lancement (relançable)
 
@@ -63,7 +63,7 @@ python app.py
 │   ├── embeddings/     # index + search() (Fatima)
 │   ├── rag/            # answer() : retrieval + génération (Alassane)
 │   ├── evaluation/     # métriques (Khadidiatou)
-│   └── advanced/       # bonus (Tayba)
+│   └── advanced/       # bonus (Abdou Aziz)
 ├── data/               # corpus + chunks.json
 ├── eval/               # questions.json + résultats
 └── docs/               # rapport

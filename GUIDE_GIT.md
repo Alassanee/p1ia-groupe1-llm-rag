@@ -44,7 +44,8 @@ Le fichier `.env` est déjà dans `.gitignore` : il ne partira jamais sur GitHub
 
 | Membre | SON dossier (il n'édite QUE ça) |
 |---|---|
-| Tayba | `data/` + `src/ingestion/` (corpus) + `src/advanced/` (bonus) |
+| Tayba | `data/` + `src/ingestion/` (corpus) |
+| Abdou Aziz | `src/advanced/` (bonus) |
 | Fatima | `src/embeddings/` |
 | Alassane | `src/rag/` + `app.py` |
 | Khadidiatou | `src/evaluation/` + `eval/` |
@@ -68,7 +69,7 @@ Nom de branche = `feat/<prenom>-<theme>`. Exemples :
 - `feat/tayba-ingestion`
 - `feat/fatima-embeddings`
 - `feat/khadidiatou-evaluation`
-- `feat/tayba-garde-fous`
+- `feat/abdou-garde-fous`
 
 Première fois (créer la branche) :
 ```bash
