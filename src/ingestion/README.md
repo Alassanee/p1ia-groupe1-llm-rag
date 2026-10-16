@@ -1,6 +1,8 @@
-# Module Ingestion — Abdou Aziz
+# Module Ingestion — Tayba _(repris d'Abdou Aziz)_
 
 **But :** corpus public FR → texte nettoyé → **chunks**.
+
+**📂 Corpus choisi : Démarches administratives du Sénégal** (CNI, passeport, état civil, casier judiciaire, certificat de résidence, permis…). Sources publiques : Guide des démarches (Senego), Annuaire des services publics, pages consulaires.
 
 **À produire :** `data/chunks.json` = `[{ "id": "...", "texte": "...", "source": "...", "position": 0 }]`
 

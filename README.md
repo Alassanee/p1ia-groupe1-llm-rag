@@ -11,15 +11,21 @@ Projet de certification IA (Orange Digital Center). Un assistant qui **répond �
 **Bonus (si le temps le permet)**
 - Function calling · Observabilité (coût + latence) · Garde-fous (hors-sujet, injection, données perso).
 
+## 📚 Corpus
+
+**Démarches administratives du Sénégal** (CNI, passeport, état civil, casier judiciaire, certificat de résidence, permis…).
+Sources **publiques** uniquement, citées dans le rapport : Guide des démarches (Senego), Annuaire des services publics, pages consulaires officielles. Aucune donnée personnelle ou confidentielle.
+
 ## 👥 Équipe & modules
 
 | Membre | Module | Dossier |
 |---|---|---|
 | Alassane | Cœur RAG + intégration | `src/rag/`, `app.py` |
-| Abdou Aziz | Ingestion du corpus | `src/ingestion/`, `data/` |
+| Tayba | Ingestion du corpus | `src/ingestion/`, `data/` |
 | Fatima | Embeddings + base vectorielle | `src/embeddings/` |
 | Khadidiatou | Évaluation | `src/evaluation/`, `eval/` |
-| Tayba | Bonus | `src/advanced/` |
+| Khadidiatou + Tayba | Rapport | `docs/` |
+| Tayba | Bonus (si le temps le permet) | `src/advanced/` |
 
 ## 🚀 Installation & lancement (relançable)
 
@@ -53,7 +59,7 @@ python app.py
 ```
 ├── app.py              # point d'entrée (Alassane)
 ├── src/
-│   ├── ingestion/      # corpus → chunks (Abdou Aziz)
+│   ├── ingestion/      # corpus → chunks (Tayba)
 │   ├── embeddings/     # index + search() (Fatima)
 │   ├── rag/            # answer() : retrieval + génération (Alassane)
 │   ├── evaluation/     # métriques (Khadidiatou)

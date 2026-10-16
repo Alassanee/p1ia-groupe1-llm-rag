@@ -20,8 +20,8 @@ git config --global user.email "ton-email-github@exemple.com"
 
 ### c) Cloner le dépôt (récupérer le projet sur ta machine)
 ```bash
-git clone https://github.com/<ORG-OU-ALASSANE>/<NOM-DU-REPO>.git
-cd <NOM-DU-REPO>
+git clone https://github.com/Alassanee/p1ia-groupe1-llm-rag.git
+cd p1ia-groupe1-llm-rag
 ```
 
 ### d) Créer son environnement Python
@@ -44,7 +44,7 @@ Le fichier `.env` est déjà dans `.gitignore` : il ne partira jamais sur GitHub
 
 | Membre | SON dossier (il n'édite QUE ça) |
 |---|---|
-| Abdou Aziz | `data/` + `src/ingestion/` |
+| Tayba | `data/` + `src/ingestion/` (corpus) + `src/advanced/` (bonus) |
 | Fatima | `src/embeddings/` |
 | Alassane | `src/rag/` + `app.py` |
 | Khadidiatou | `src/evaluation/` + `eval/` |
@@ -65,18 +65,18 @@ git pull origin main
 
 ### Étape 2 — Créer/retrouver SA branche
 Nom de branche = `feat/<prenom>-<theme>`. Exemples :
-- `feat/abdou-ingestion`
+- `feat/tayba-ingestion`
 - `feat/fatima-embeddings`
 - `feat/khadidiatou-evaluation`
 - `feat/tayba-garde-fous`
 
 Première fois (créer la branche) :
 ```bash
-git checkout -b feat/abdou-ingestion
+git checkout -b feat/tayba-ingestion
 ```
 Les jours suivants (revenir dessus) :
 ```bash
-git checkout feat/abdou-ingestion
+git checkout feat/tayba-ingestion
 git merge main      # récupérer le travail des autres déjà fusionné
 ```
 
@@ -89,7 +89,7 @@ git commit -m "ingestion: découpage des documents en chunks"
 
 ### Étape 4 — Envoyer sa branche sur GitHub (push)
 ```bash
-git push origin feat/abdou-ingestion
+git push origin feat/tayba-ingestion
 ```
 
 ### Étape 5 — Ouvrir une Pull Request (PR)
