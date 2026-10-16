@@ -49,7 +49,7 @@ Le fichier `.env` est déjà dans `.gitignore` : il ne partira jamais sur GitHub
 | Fatima | `src/embeddings/` |
 | Alassane | `src/rag/` + `app.py` |
 | Khadidiatou | `src/evaluation/` + `eval/` |
-| Tayba | `src/advanced/` |
+| Khadidiatou + Tayba | `docs/` (rapport) |
 
 👉 Tant que **chacun reste dans son dossier**, Git n'a **aucune raison** de créer un conflit.
 ⚠️ Fichiers **partagés** (`README.md`, `requirements.txt`) : prévenir l'équipe sur WhatsApp **avant** d'y toucher.
