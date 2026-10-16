@@ -2,15 +2,16 @@
 Point d'entrée de l'assistant RAG — Groupe 1.
 Responsable : Alassane (intégration).
 
-Ce fichier assemble les modules de l'équipe. Les imports marqués TODO
-seront activés au fur et à mesure que chaque module est prêt.
+Prérequis (voir README) :
+    1. python -m src.ingestion.run        # corpus -> data/chunks.json
+    2. python -m src.embeddings.build_index   # -> data/index/
+    3. python app.py
 """
-
-# from src.rag.pipeline import answer   # TODO: activer quand src/rag est prêt
+from src.rag.pipeline import answer
 
 
 def main():
-    print("=== Assistant RAG — Groupe 1 ===")
+    print("=== Assistant RAG — Groupe 1 (démarches administratives) ===")
     print("Pose une question sur le corpus (ou 'quit' pour sortir).\n")
 
     while True:
@@ -18,14 +19,13 @@ def main():
         if question.lower() in {"quit", "exit", "q", ""}:
             break
 
-        # TODO (intégration) : brancher le vrai pipeline
-        # result = answer(question)
-        # print("\n💬 Réponse :", result["reponse"])
-        # print("\n📎 Passages cités :")
-        # for p in result["passages"]:
-        #     print(f"  - [{p['source']}] {p['texte'][:120]}...")
-
-        print("\n[squelette] Le pipeline n'est pas encore branché.\n")
+        result = answer(question)
+        print("\n💬 Réponse :", result["reponse"])
+        if result["passages"]:
+            print("\n📎 Passages utilisés :")
+            for p in result["passages"]:
+                print(f"  - [{p['source']}] (score {p['score']:.2f}) {p['texte'][:120]}...")
+        print()
 
 
 if __name__ == "__main__":

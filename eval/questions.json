@@ -1,0 +1,17 @@
+[
+  {
+    "question": "Quels documents faut-il pour obtenir un passeport ?",
+    "reponse_reference": "Une carte nationale d'identité en cours de validité, un extrait de naissance et des photos d'identité conformes.",
+    "source_attendue": "exemple_demarches.txt"
+  },
+  {
+    "question": "Où obtient-on un extrait de naissance ?",
+    "reponse_reference": "Au centre d'état civil du lieu de naissance.",
+    "source_attendue": "exemple_demarches.txt"
+  },
+  {
+    "question": "Quelle est la capitale de l'Australie ?",
+    "reponse_reference": "HORS-SUJET — doit déclencher le garde-fou : « Je ne sais pas d'après le corpus. »",
+    "source_attendue": ""
+  }
+]

@@ -9,12 +9,13 @@ venv/
 env/
 *.egg-info/
 
-# Index vectoriels / gros fichiers générés
+# Index vectoriels / fichiers générés
 *.faiss
 *.index
 chroma/
 .chroma/
 data/index/
+data/chunks.json
 
 # Notebooks
 .ipynb_checkpoints/
