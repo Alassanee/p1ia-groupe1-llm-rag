@@ -1,0 +1,25 @@
+# Secrets — NE JAMAIS COMMITER
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Index vectoriels / gros fichiers générés
+*.faiss
+*.index
+chroma/
+.chroma/
+data/index/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS / éditeurs
+.DS_Store
+.vscode/
+.idea/

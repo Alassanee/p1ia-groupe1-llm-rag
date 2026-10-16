@@ -1,0 +1,24 @@
+# === Dépendances du projet (socle RAG) ===
+# Astuce : une fois l'environnement figé, lancer `pip freeze > requirements.txt`
+# pour verrouiller les versions exactes (reproductibilité = points à l'éval).
+
+# Embeddings & base vectorielle
+sentence-transformers
+faiss-cpu            # OU : chromadb   (choisir l'un des deux)
+numpy
+
+# Ingestion / préparation du corpus
+pypdf
+beautifulsoup4
+requests
+
+# LLM (choisir selon le fournisseur retenu)
+groq                 # si Groq
+# google-generativeai  # si Gemini
+
+# Évaluation
+pandas
+ragas                # optionnel (faithfulness, context precision/recall)
+
+# Utilitaires
+python-dotenv
