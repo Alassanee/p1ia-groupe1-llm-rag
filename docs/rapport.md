@@ -1,109 +1,123 @@
 # Rapport — Assistant RAG sur les démarches administratives du Sénégal
 
 **Certification IA — Orange Digital Center · P1IA · Groupe 1**
-**Membres :** Alassane, Tayba, Fatima, Khadidiatou, Abdou Aziz
-**Date :** _(à compléter)_
-
-> 📝 Modèle à remplir. Les `_(à compléter)_` sont des trous à combler. Gardez le rapport **court et lucide** : d'après les critères, **l'évaluation et l'analyse des échecs comptent plus que la performance brute**.
+**Membres :** Alassane (lead/intégration), Tayba (corpus), Fatima (retrieval), Khadidiatou (évaluation), Abdou Aziz (bonus)
 
 ---
 
-## 1. Contexte & objectif
+## 1. Objectif
 
-Assistant qui répond à des questions sur un corpus de documents publics, en citant les passages utilisés, puis dont on mesure la qualité des réponses.
-
-- **Problème traité :** _(à compléter — ex. aider à s'y retrouver dans les démarches administratives)_
-- **Ce que fait l'assistant :** _(à compléter)_
+Construire un assistant capable de répondre à des questions sur un corpus de documents **publics en français**, en **citant les passages utilisés**, puis **mesurer la qualité** de ses réponses. Corpus choisi : les **démarches administratives du Sénégal** (CNI, passeport, état civil, casier judiciaire, certificat de résidence, permis).
 
 ## 2. Corpus
 
-- **Thème :** démarches administratives du Sénégal (CNI, passeport, état civil, casier judiciaire…).
-- **Sources (publiques, citées) :** _(à compléter — liste des URL/documents)_
-- **Taille :** _(à compléter — nb de documents, nb de pages, nb de chunks)_
-- **Caractère public confirmé :** oui — aucune donnée personnelle / confidentielle.
-- **Prétraitement :** nettoyage _(à compléter)_, découpage en chunks de ~800 caractères (overlap 150).
+- **8 documents** texte, regroupés par démarche dans `data/corpus/`, découpés en **37 chunks** indexés.
+- **Sources publiques** (citées, traçées dans `data/sources.json`) : guide des démarches et dossier passeport (Senego), fiche CNI (OSIRIS / Le Soleil), article e-Senegal (NDARINFO).
+- Aucune donnée personnelle ni confidentielle.
+- Point notable : sur le casier judiciaire, le corpus documente **deux procédures concurrentes** (dépôt physique au greffe *vs* plateforme e-Senegal en déploiement) — utile pour tester la nuance.
 
-## 3. Architecture du pipeline
+## 3. Architecture (pipeline RAG)
 
 ```
-Corpus → [Ingestion] → chunks.json → [Embeddings + index] → [Recherche top-k]
-                                                                   ↓
-                              Question ───────────────────→ [Prompt + LLM] → Réponse + passages cités
+Corpus (.txt) → [DirectoryLoader] → [RecursiveCharacterTextSplitter 800/150]
+   → [Embeddings multilingues] → [Chroma] → [Retriever top-k]
+        ↓
+  Question → [Garde-fous] → [Function calling éventuel] → [Prompt + LLM Groq] → Réponse + sources citées
 ```
 
-- **Étapes :** ingestion → embeddings/index → retrieval → génération avec citation.
-- _(à compléter — insérer un schéma si possible)_
+Un seul flux : `answer_advanced()` enchaîne garde-fous → outils → RAG → observabilité.
 
 ## 4. Choix techniques (justifiés)
 
-| Composant | Choix retenu | Pourquoi | Alternatives écartées |
-|---|---|---|---|
-| Modèle d'embeddings | `intfloat/multilingual-e5-small` | gratuit, bon en français | _(à compléter)_ |
-| Base vectorielle | _(à compléter : FAISS / Chroma / numpy)_ | _(à compléter)_ | _(à compléter)_ |
-| LLM (génération) | _(à compléter : Groq Llama / Gemini)_ | gratuit, suffisant | _(à compléter)_ |
-| Découpage (chunking) | 800 car. / overlap 150 | compromis contexte / précision | _(à compléter)_ |
+| Composant | Choix | Pourquoi |
+|---|---|---|
+| Framework | **LangChain** | standard, composable, gère loader/splitter/retriever/LLM |
+| Embeddings | `paraphrase-multilingual-MiniLM-L12-v2` | gratuit, bon en français, léger (pas de préfixe à gérer) |
+| Base vectorielle | **Chroma** (persistée) | simple, local, gratuit, relançable |
+| Découpage | 800 car. / overlap 150 | compromis contexte / précision du passage |
+| LLM | **Groq** `openai/gpt-oss-20b` | gratuit, rapide, bon en français |
+| Garde-fous | règles + seuil + anonymisation PII | sécurité sans coût LLM supplémentaire |
+
+> Aucun budget : API Groq gratuite + modèles ouverts locaux pour les embeddings.
 
 ## 5. Protocole d'évaluation
 
-- **Jeu de test :** _(à compléter)_ questions avec réponses de référence (`eval/questions.json`).
-- **Métriques :**
-  - **Fidélité** (la réponse s'appuie-t-elle vraiment sur le corpus, sans invention ?) — méthode : _(à compléter : manuelle / RAGAS faithfulness)_
-  - **Pertinence du retrieval** (les bons passages sont-ils retrouvés ?) — méthode : _(à compléter : context precision/recall)_
-- **Procédure :** _(à compléter — comment les scores ont été attribués)_
+Jeu de **15 questions** (`eval/questions.json`) : **12 factuelles** (avec réponse de référence + source attendue) et **3 pièges** (hors-sujet, injection de prompt, données personnelles). Script : `python -m src.evaluation.run_eval`.
+
+Métriques :
+- **Pertinence du retrieval** : la source attendue figure-t-elle dans les passages renvoyés ? (objectif, automatique)
+- **Exactitude** : la réponse contient-elle les informations clés attendues ? (vérif. par mots-clés + revue)
+- **Garde-fous** : hors-sujet refusé, injection bloquée, PII masquée.
 
 ## 6. Résultats
 
-| Métrique | Score | Commentaire |
-|---|---|---|
-| Fidélité | _(à compléter)_ | _(à compléter)_ |
-| Pertinence du retrieval | _(à compléter)_ | _(à compléter)_ |
-| Taux de bonnes réponses | _(à compléter)_ | _(à compléter)_ |
+| Métrique | Score |
+|---|---|
+| Pertinence du retrieval | **11 / 12 (91 %)** |
+| Exactitude (mots-clés) | **10 / 12 (83 %)** |
+| Garde-fous (pièges) | **3 / 3 (100 %)** |
+| Latence typique | ~0,6 à 3 s / requête |
+| Coût estimé | ~0,0001 à 0,0003 $ / requête |
 
-_(à compléter — 2-3 phrases de synthèse)_
+Les 3 pièges sont correctement gérés : hors-sujet → « Je ne sais pas d'après le corpus », injection → requête bloquée, NIN → masqué avant traitement.
 
-## 7. Analyse des échecs ⭐ (section la plus importante)
+## 7. Analyse des échecs ⭐
 
-Pour chaque échec représentatif : la question, ce qui était attendu, ce qu'a produit le système, et **pourquoi** ça a raté.
+Deux « échecs » seulement, et l'analyse est instructive :
 
-| # | Question | Réponse attendue | Réponse obtenue | Cause probable | Catégorie |
-|---|---|---|---|---|---|
-| 1 | _(à compléter)_ | _(à compléter)_ | _(à compléter)_ | _(à compléter)_ | hallucination / mauvais passage / chunk coupé / hors-corpus |
-| 2 | _(à compléter)_ | | | | |
-| 3 | _(à compléter)_ | | | | |
+1. **`passeport_docs` — vrai échec de retrieval.**
+ Question : « Quels documents pour une première demande de passeport adulte ? » → le système répond « Je ne sais pas d'après le corpus ».
+ **Cause :** le dossier passeport est long et génère beaucoup de chunks ; pour cette formulation, les passages « documents requis » d'autres démarches (CNI…) sont sémantiquement proches, et le bon chunk passeport n'est pas remonté dans le top-4. C'est une **confusion inter-documents** classique en RAG.
+ **Pistes :** augmenter `k`, filtrer par démarche (métadonnée), ou affiner le découpage (Fatima, via `src/rag/config.py`).
 
-**Ce que ces échecs nous apprennent :** _(à compléter — l'analyse lucide, c'est ce qui rapporte le plus de points)_
+2. **`passeport_prix` — faux échec (artefact de mesure).**
+ La réponse est en réalité **correcte** (« 20000 FCFA », via l'outil fiscal), mais elle est comptée ❌ car l'outil écrit « 20000 » sans séparateur de milliers, alors que le mot-clé attendu est « 20 000 ».
+ **Leçon :** notre métrique automatique par mots-clés est **sensible au formatage** (espaces insécables, séparateurs). Après revue manuelle, **11 réponses sur 12 sont réellement correctes**. Petite amélioration : formater les montants de l'outil avec séparateur.
+
+**Ce que ça nous apprend :** la qualité dépend autant du **retrieval** (le bon passage doit remonter) que de la **mesure** (une métrique trop littérale sous-estime la performance). D'où l'importance de croiser métrique automatique et relecture.
 
 ## 8. Limites connues
 
-- _(à compléter — ex. corpus limité, pas de gestion des questions multi-documents, dépendance au modèle gratuit…)_
+- Corpus volontairement restreint (8 documents) → couverture partielle.
+- Pas de filtrage par démarche au retrieval → risque de confusion inter-documents (cf. échec 1).
+- Métrique d'exactitude approximative (mots-clés) → à compléter par une évaluation humaine ou RAGAS.
+- Réponses dépendantes d'un modèle gratuit (variabilité possible).
 
-## 9. Ce qu'on changerait / pistes d'amélioration
+## 9. Améliorations envisagées
 
-- _(à compléter — ex. meilleur chunking, reranking, corpus plus large, modèle plus grand…)_
+- Ajouter un **filtre par métadonnée « démarche »** ou un reranking pour corriger l'échec de retrieval.
+- Tester d'autres embeddings / tailles de chunk (via `src/rag/config.py`).
+- Enrichir le corpus (couverture + coûts manquants).
+- Évaluation avec **RAGAS** (faithfulness, context precision/recall) en complément.
 
-## 10. Fonctionnalités avancées (bonus)
+## 10. Fonctionnalités avancées (bonus) — implémentées
 
-- **Function calling :** _(à compléter ou « non traité »)_
-- **Observabilité (coût + latence) :** _(à compléter ou « non traité »)_
-- **Garde-fous :** hors-sujet géré via seuil de pertinence + réponse « je ne sais pas d'après le corpus » ; _(à compléter : injection de prompt / données perso)_
+- **Function calling :** outil « barème officiel » qui calcule frais/timbres et pièces par démarche (déclenché sur les questions de coût).
+- **Observabilité :** latence, tokens, coût estimé par requête, journalisés dans `eval/traces.jsonl`.
+- **Garde-fous :** blocage des injections de prompt, anonymisation des données personnelles (NIN, téléphone, email), refus hors-sujet.
 
-## 11. Sources & références
+## 11. Sources
 
-- _(à compléter — sources du corpus + bibliothèques/modèles utilisés)_
+Documents du corpus cités dans `data/sources.json` (Senego, OSIRIS/Le Soleil, NDARINFO). Bibliothèques : LangChain, sentence-transformers, Chroma, Groq.
 
 ## 12. Répartition du travail
 
 | Membre | Contribution |
 |---|---|
-| Alassane | Cœur RAG, intégration, coordination, démo |
-| Tayba | Ingestion du corpus, rapport |
-| Fatima | Embeddings & base vectorielle |
-| Khadidiatou | Évaluation, rapport |
-| Abdou Aziz | Fonctionnalités bonus |
+| Alassane | Cœur RAG LangChain, intégration, pipeline unifié |
+| Tayba | Corpus (collecte, nettoyage) + provenance des sources |
+| Fatima | Réglage du retrieval (embeddings, chunks, k) |
+| Khadidiatou | Jeu d'évaluation, métriques, analyse des échecs |
+| Abdou Aziz | Garde-fous, observabilité, function calling |
 
 ## 13. Démonstration (plan ~5 min)
 
-1. Le problème + le corpus (30 s)
-2. Une question en direct → réponse + passages cités (1-2 min)
-3. Résultats d'évaluation (1 min)
-4. Un échec analysé + les limites (1-2 min)
+1. Problème + corpus (30 s).
+2. Questions en direct : une factuelle (réponse + sources), une de coût (outil), un piège injection (blocage) (2 min).
+3. Résultats d'évaluation (1 min).
+4. L'échec `passeport_docs` + les limites (1 min).
+5. Observabilité (latence/coût) en direct (30 s).
+
+---
+
+*Évaluation réalisée le 2026-10-25 sur 15 questions. Reproductible via `python -m src.evaluation.run_eval` (voir `eval/results.md`).*

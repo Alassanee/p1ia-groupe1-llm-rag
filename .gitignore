@@ -18,6 +18,15 @@ data/index/
 data/chunks.json
 eval/traces.jsonl
 
+# LaTeX — artefacts de compilation (on garde .tex et .pdf)
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+
 # Notebooks
 .ipynb_checkpoints/
 
