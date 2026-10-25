@@ -1,0 +1,66 @@
+[
+  {
+    "nom": "Senego — Guide des démarches administratives",
+    "url": "https://senego.com/services/guide-demarches",
+    "demarche": "cni",
+    "date_consultation": "2026-10-23",
+    "origine_donnees": "cache",
+    "nb_chunks_produits": 6
+  },
+  {
+    "nom": "OSIRIS — Carte nationale d'identité : les pièces à fournir",
+    "url": "https://osiris.sn/Carte-nationale-d-identite-Les.html",
+    "demarche": "cni",
+    "date_consultation": "2026-10-23",
+    "origine_donnees": "cache",
+    "nb_chunks_produits": 2
+  },
+  {
+    "nom": "Senego — Dossier Passeport sénégalais 2026",
+    "url": "https://senego.com/dossier/passeport-senegal",
+    "demarche": "passeport",
+    "date_consultation": "2026-10-23",
+    "origine_donnees": "cache",
+    "nb_chunks_produits": 14
+  },
+  {
+    "nom": "Senego — Guide des démarches administratives",
+    "url": "https://senego.com/services/guide-demarches",
+    "demarche": "etat_civil",
+    "date_consultation": "2026-10-23",
+    "origine_donnees": "cache",
+    "nb_chunks_produits": 6
+  },
+  {
+    "nom": "Senego — Guide des démarches administratives",
+    "url": "https://senego.com/services/guide-demarches",
+    "demarche": "casier_judiciaire",
+    "date_consultation": "2026-10-23",
+    "origine_donnees": "cache",
+    "nb_chunks_produits": 2
+  },
+  {
+    "nom": "NDARINFO — Casier judiciaire et nationalité en ligne (e-Senegal)",
+    "url": "https://www.ndarinfo.com/Casier-judiciaire-et-nationalite-en-ligne-Ce-qu-il-faut-savoir-sur-e-Senegal_a43636.html",
+    "demarche": "casier_judiciaire",
+    "date_consultation": "2026-10-23",
+    "origine_donnees": "cache",
+    "nb_chunks_produits": 4
+  },
+  {
+    "nom": "Senego — Guide des démarches administratives",
+    "url": "https://senego.com/services/guide-demarches",
+    "demarche": "certificat_residence",
+    "date_consultation": "2026-10-23",
+    "origine_donnees": "cache",
+    "nb_chunks_produits": 1
+  },
+  {
+    "nom": "Senego — Guide des démarches administratives",
+    "url": "https://senego.com/services/guide-demarches",
+    "demarche": "permis",
+    "date_consultation": "2026-10-23",
+    "origine_donnees": "cache",
+    "nb_chunks_produits": 6
+  }
+]

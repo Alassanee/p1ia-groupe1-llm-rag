@@ -1,0 +1,453 @@
+[
+  {
+    "id": "cni_0001",
+    "texte": "CNI — La Carte Nationale d'Identité (CNI) biométrique CEDEAO\n\nLa Carte Nationale d'Identité biométrique CEDEAO est le document d'identification principal de tout citoyen sénégalais. Depuis la mise en place du système biométrique, cette carte intègre des données biométriques (empreintes digitales, photographie numérique) garantissant une identification sécurisée. Elle est indispensable pour voter, voyager dans l'espace CEDEAO, effectuer des transactions bancaires et accomplir la quasi-totalité des démarches administratives.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "cni",
+    "position": 1
+  },
+  {
+    "id": "cni_0002",
+    "texte": "CNI — La Carte Nationale d'Identité biométrique CEDEAO est le document d'identification principal de tout citoyen sénégalais. Depuis la mise en place du système biométrique, cette carte intègre des données biométriques (empreintes digitales, photographie numérique) garantissant une identification sécurisée. Elle est indispensable pour voter, voyager dans l'espace CEDEAO, effectuer des transactions bancaires et accomplir la quasi-totalité des démarches administratives.\n\nLes documents requis pour l'obtention d'une première CNI ou un renouvellement sont : un extrait de naissance datant de moins de six mois, un certificat de résidence délivré par le chef de quartier ou de village, deux photos d'identité récentes sur fond blanc, et un timbre fiscal de 2 000 FCFA. Pour un renouvellement, l'ancienne carte doit être présentée. En cas de perte ou de vol, une déclaration de perte établie au commissariat de police est nécessaire.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "cni",
+    "position": 2
+  },
+  {
+    "id": "cni_0003",
+    "texte": "CNI — Les documents requis pour l'obtention d'une première CNI ou un renouvellement sont : un extrait de naissance datant de moins de six mois, un certificat de résidence délivré par le chef de quartier ou de village, deux photos d'identité récentes sur fond blanc, et un timbre fiscal de 2 000 FCFA. Pour un renouvellement, l'ancienne carte doit être présentée. En cas de perte ou de vol, une déclaration de perte établie au commissariat de police est nécessaire.\n\nLa procédure commence par l'enrôlement biométrique dans un centre dédié. Ces centres d'enrôlement sont présents dans les préfectures, les sous-préfectures et certaines mairies à travers le pays. À Dakar, les principaux centres se trouvent dans les mairies d'arrondissement et au niveau de la préfecture. Le processus d'enrôlement comprend la collecte des empreintes digitales, la prise de photo numérique et la vérification des documents fournis.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "cni",
+    "position": 3
+  },
+  {
+    "id": "cni_0004",
+    "texte": "CNI — La procédure commence par l'enrôlement biométrique dans un centre dédié. Ces centres d'enrôlement sont présents dans les préfectures, les sous-préfectures et certaines mairies à travers le pays. À Dakar, les principaux centres se trouvent dans les mairies d'arrondissement et au niveau de la préfecture. Le processus d'enrôlement comprend la collecte des empreintes digitales, la prise de photo numérique et la vérification des documents fournis.\n\nLe délai de délivrance de la CNI varie considérablement. En période normale, il faut compter entre un et trois mois. Avant les échéances électorales, la demande explose et les délais s'allongent considérablement. Il est donc fortement recommandé de faire sa demande en dehors des périodes pré-électorales. Le retrait de la carte se fait au même centre d'enrôlement, sur présentation du récépissé délivré lors de l'enrôlement.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "cni",
+    "position": 4
+  },
+  {
+    "id": "cni_0005",
+    "texte": "CNI — Le délai de délivrance de la CNI varie considérablement. En période normale, il faut compter entre un et trois mois. Avant les échéances électorales, la demande explose et les délais s'allongent considérablement. Il est donc fortement recommandé de faire sa demande en dehors des périodes pré-électorales. Le retrait de la carte se fait au même centre d'enrôlement, sur présentation du récépissé délivré lors de l'enrôlement.\n\nLa CNI biométrique CEDEAO est valable pour une durée de 10 ans. Elle permet de voyager sans passeport dans les 15 pays membres de la CEDEAO (Communauté Économique des États de l'Afrique de l'Ouest). C'est un document précieux qu'il convient de conserver soigneusement et de renouveler avant son expiration pour éviter les difficultés administratives.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "cni",
+    "position": 5
+  },
+  {
+    "id": "cni_0006",
+    "texte": "CNI — La CNI biométrique CEDEAO est valable pour une durée de 10 ans. Elle permet de voyager sans passeport dans les 15 pays membres de la CEDEAO (Communauté Économique des États de l'Afrique de l'Ouest). C'est un document précieux qu'il convient de conserver soigneusement et de renouveler avant son expiration pour éviter les difficultés administratives.\n\nQuestion fréquente : Combien de temps faut-il pour obtenir une carte nationale d'identité au Sénégal ?\nLe délai officiel est d'environ un à trois mois après l'enrôlement biométrique. En pratique, ce délai peut varier selon la période (il s'allonge considérablement avant les élections) et le lieu de demande. Il est conseillé de faire sa demande longtemps avant d'avoir besoin du document.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "cni",
+    "position": 6
+  },
+  {
+    "id": "cni_0007",
+    "texte": "CNI — Carte nationale d'identité : Les pièces à fournir pour son obtention\n\nLes citoyens d'au moins 5 ans (tout citoyen sénégalais, âgé d'au moins 5 ans, peut demander l'établissement d'une carte nationale d'identité. Elle est obligatoire à partir de 15 ans) qui ne veulent que la nouvelle carte d'identité CEDEAO (donc qui ne veulent pas s'inscrire sur les listes électorales) doivent se rendre dans les commissariats de police et brigades de gendarmerie munis :\n\n- de leur ancienne carte d'identité nationale numérisée,\n- de la photocopie de cette carte ou, s'ils n'ont pas encore de carte d'identité,\n- d'un extrait de naissance datant de moins d'un an,\n- d'un certificat de résidence et éventuellement d'un certificat de nationalité.",
+    "source": {
+      "nom": "OSIRIS — Carte nationale d'identité : les pièces à fournir",
+      "url": "https://osiris.sn/Carte-nationale-d-identite-Les.html",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "cni",
+    "position": 7
+  },
+  {
+    "id": "cni_0008",
+    "texte": "CNI — - de leur ancienne carte d'identité nationale numérisée,\n- de la photocopie de cette carte ou, s'ils n'ont pas encore de carte d'identité,\n- d'un extrait de naissance datant de moins d'un an,\n- d'un certificat de résidence et éventuellement d'un certificat de nationalité.\n\nLes citoyens qui souhaitent confirmer leur inscription sur les listes électorales, modifier leur adresse électorale ou s'inscrire pour la première fois, eux, doivent se rendre exclusivement auprès des commissions administratives (préfectures, sous-préfectures ou commissions mobiles) munis de leur carte nationale ou d'électeur (au choix) et de la photocopie de la carte présentée.\n\nSource : Le Soleil, 10 octobre 2016.",
+    "source": {
+      "nom": "OSIRIS — Carte nationale d'identité : les pièces à fournir",
+      "url": "https://osiris.sn/Carte-nationale-d-identite-Les.html",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "cni",
+    "position": 8
+  },
+  {
+    "id": "passeport_0001",
+    "texte": "PASSEPORT — Passeport sénégalais 2026 : démarches, prix, délais et renouvellement\n\nLe passeport sénégalais est un document d'identité essentiel, délivré par la Direction de l'Automatisation des Fichiers (DAF) sous tutelle du Ministère de l'Intérieur. Depuis l'introduction du passeport biométrique conforme aux normes ICAO, la procédure est entièrement informatisée et requiert une présence physique du demandeur.\n\nPrix officiels du passeport sénégalais en 2026\n\nLes tarifs officiels du timbre fiscal pour la délivrance du passeport sénégalais ordinaire sont fixés par décret et payables auprès de la Direction Générale des Impôts et des Domaines (DGID).",
+    "source": {
+      "nom": "Senego — Dossier Passeport sénégalais 2026",
+      "url": "https://senego.com/dossier/passeport-senegal",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "passeport",
+    "position": 1
+  },
+  {
+    "id": "passeport_0002",
+    "texte": "PASSEPORT — Les tarifs officiels du timbre fiscal pour la délivrance du passeport sénégalais ordinaire sont fixés par décret et payables auprès de la Direction Générale des Impôts et des Domaines (DGID).\n\nAu Sénégal :\n- Passeport ordinaire (adulte) : 20 000 FCFA (timbre fiscal).\n- Passeport élève / étudiant : 10 000 FCFA, sur présentation d'un certificat de scolarité ou d'une carte d'étudiant en cours de validité.\n- Quittance : à acquitter auprès de la Direction de l'Enregistrement, des domaines et du timbre, ou en ligne via la plateforme Sénégal Services.",
+    "source": {
+      "nom": "Senego — Dossier Passeport sénégalais 2026",
+      "url": "https://senego.com/dossier/passeport-senegal",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "passeport",
+    "position": 2
+  },
+  {
+    "id": "passeport_0003",
+    "texte": "PASSEPORT — Au Sénégal :\n- Passeport ordinaire (adulte) : 20 000 FCFA (timbre fiscal).\n- Passeport élève / étudiant : 10 000 FCFA, sur présentation d'un certificat de scolarité ou d'une carte d'étudiant en cours de validité.\n- Quittance : à acquitter auprès de la Direction de l'Enregistrement, des domaines et du timbre, ou en ligne via la plateforme Sénégal Services.\n\nÀ l'étranger (zone euro) : une harmonisation des tarifs en zone euro a été communiquée par les autorités sénégalaises le 26 janvier 2026 :\n- Première demande : 61 euros.\n- Renouvellement : 30,50 euros.\nLes tarifs hors zone euro (États-Unis, Canada, Royaume-Uni, etc.) sont à vérifier auprès du consulat du Sénégal compétent.\n\nDocuments requis pour la demande",
+    "source": {
+      "nom": "Senego — Dossier Passeport sénégalais 2026",
+      "url": "https://senego.com/dossier/passeport-senegal",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "passeport",
+    "position": 3
+  },
+  {
+    "id": "passeport_0004",
+    "texte": "PASSEPORT — Documents requis pour la demande\n\nPour un adulte (première demande) :\n- Original de la Carte Nationale d'Identité (CNI) en cours de validité, plus une copie certifiée conforme à déposer.\n- Extrait d'acte de naissance récent (moins de 3 mois) ou jugement supplétif.\n- Certificat de nationalité sénégalaise, délivré par le Tribunal d'Instance du lieu de résidence.\n- Quittance du timbre fiscal au montant requis (20 000 FCFA ou 10 000 FCFA étudiant).\n- Photos d'identité aux normes ICAO 9303 (généralement 4 photos récentes).\n- Justificatif de domicile (facture d'eau, électricité ou attestation de résidence).",
+    "source": {
+      "nom": "Senego — Dossier Passeport sénégalais 2026",
+      "url": "https://senego.com/dossier/passeport-senegal",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "passeport",
+    "position": 4
+  },
+  {
+    "id": "passeport_0005",
+    "texte": "PASSEPORT — Pour un adulte (première demande) :\n- Original de la Carte Nationale d'Identité (CNI) en cours de validité, plus une copie certifiée conforme à déposer.\n- Extrait d'acte de naissance récent (moins de 3 mois) ou jugement supplétif.\n- Certificat de nationalité sénégalaise, délivré par le Tribunal d'Instance du lieu de résidence.\n- Quittance du timbre fiscal au montant requis (20 000 FCFA ou 10 000 FCFA étudiant).\n- Photos d'identité aux normes ICAO 9303 (généralement 4 photos récentes).\n- Justificatif de domicile (facture d'eau, électricité ou attestation de résidence).\n\nPour un mineur :\n- Acte de naissance du mineur.\n- Copie certifiée conforme de la CNI du père ou de la mère.\n- Autorisation parentale.\n- Certificat de prise en charge délivré par la mairie ou la justice.\n- Quittance du timbre fiscal et photos d'identité.\n- Présence du mineur obligatoire pour la prise des empreintes (à partir d'un certain âge).",
+    "source": {
+      "nom": "Senego — Dossier Passeport sénégalais 2026",
+      "url": "https://senego.com/dossier/passeport-senegal",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "passeport",
+    "position": 5
+  },
+  {
+    "id": "passeport_0006",
+    "texte": "PASSEPORT — Pour un mineur :\n- Acte de naissance du mineur.\n- Copie certifiée conforme de la CNI du père ou de la mère.\n- Autorisation parentale.\n- Certificat de prise en charge délivré par la mairie ou la justice.\n- Quittance du timbre fiscal et photos d'identité.\n- Présence du mineur obligatoire pour la prise des empreintes (à partir d'un certain âge).\n\nPour un renouvellement :\n- Toutes les pièces ci-dessus.\n- Ancien passeport (même expiré) : il sera invalidé puis restitué selon la procédure.\n\nDélais réels d'obtention",
+    "source": {
+      "nom": "Senego — Dossier Passeport sénégalais 2026",
+      "url": "https://senego.com/dossier/passeport-senegal",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "passeport",
+    "position": 6
+  },
+  {
+    "id": "passeport_0007",
+    "texte": "PASSEPORT — Délais réels d'obtention\n\nAu Sénégal, le délai dépend de deux étapes :\n1. Délai pour obtenir un rendez-vous au commissariat : de 2 à 25 jours selon l'affluence du centre choisi.\n2. Délai de fabrication après la prise des empreintes : généralement 2 à 4 semaines, selon les stocks de livrets disponibles à la DAF et la période (haute saison estivale ralentit la production).\nLa prise de rendez-vous est obligatoire à Dakar pour limiter l'affluence dans les centres.\n\nPour la diaspora, le délai moyen de fabrication s'établit entre 5 et 6 semaines après le dépôt initial de la demande à l'ambassade ou au consulat. Ce délai inclut le transfert physique du dossier vers Dakar et le retour du passeport au consulat de demande.\n\nOù faire la demande au Sénégal",
+    "source": {
+      "nom": "Senego — Dossier Passeport sénégalais 2026",
+      "url": "https://senego.com/dossier/passeport-senegal",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "passeport",
+    "position": 7
+  },
+  {
+    "id": "passeport_0008",
+    "texte": "PASSEPORT — Où faire la demande au Sénégal\n\nLa demande s'effectue auprès du commissariat de police dont relève votre domicile. Les centres principaux sont :\n- Région de Dakar : Direction de l'Automatisation des Fichiers (DAF) et commissariats de Dakar-Plateau, Pikine, Guédiawaye, Rufisque, Parcelles Assainies, Médina.\n- Régions : commissariats centraux des chefs-lieux régionaux : Saint-Louis, Thiès, Diourbel, Kaolack, Ziguinchor, Tambacounda, Matam, Kolda, Louga, Fatick, Sédhiou, Kaffrine, Kédougou.\nLa plateforme Sénégal Services (senegalservices.sn) centralise les informations sur la procédure, la prise de rendez-vous lorsque disponible, et le paiement de la quittance en ligne.\n\nDémarches à l'étranger",
+    "source": {
+      "nom": "Senego — Dossier Passeport sénégalais 2026",
+      "url": "https://senego.com/dossier/passeport-senegal",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "passeport",
+    "position": 8
+  },
+  {
+    "id": "passeport_0009",
+    "texte": "PASSEPORT — Démarches à l'étranger\n\nPour les Sénégalais établis à l'étranger, la demande s'effectue à l'ambassade ou au consulat du pays de résidence : France (Paris, Bordeaux, Lyon, Marseille), Italie (Rome, Milan), Espagne (Madrid, Barcelone, Las Palmas), États-Unis (Washington, New York), Canada (Ottawa, Montréal), Royaume-Uni (Londres), ainsi que plusieurs représentations en Afrique (Bamako, Abidjan, Conakry, Nouakchott, Banjul, Le Caire, Rabat). Les ambassades organisent parfois des missions itinérantes biométriques dans les régions éloignées pour faciliter la prise des empreintes.\n\nLe passeport biométrique électronique",
+    "source": {
+      "nom": "Senego — Dossier Passeport sénégalais 2026",
+      "url": "https://senego.com/dossier/passeport-senegal",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "passeport",
+    "position": 9
+  },
+  {
+    "id": "passeport_0010",
+    "texte": "PASSEPORT — Le passeport biométrique électronique\n\nLe Sénégal délivre un passeport biométrique conforme aux normes ICAO 9303. Le livret intègre une puce électronique RFID stockant les informations d'identification du porteur, les empreintes digitales numérisées, la photo numérique haute définition et la signature électronique émise par les autorités. Cette puce, cryptée et signée numériquement, est lue automatiquement par les portiques aux frontières équipées (zone Schengen, États-Unis, Canada, etc.).\n\nRenouvellement et perte de passeport",
+    "source": {
+      "nom": "Senego — Dossier Passeport sénégalais 2026",
+      "url": "https://senego.com/dossier/passeport-senegal",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "passeport",
+    "position": 10
+  },
+  {
+    "id": "passeport_0011",
+    "texte": "PASSEPORT — Renouvellement et perte de passeport\n\nIl est conseillé de renouveler son passeport au moins 6 mois avant la date d'expiration, la majorité des pays exigeant une validité résiduelle minimale de 6 mois pour autoriser l'entrée. La procédure de renouvellement est identique à la première demande, à l'exception de l'ancien passeport qui doit être présenté.\n\nEn cas de perte ou de vol :\n1. Déposer plainte sans délai au commissariat (au Sénégal) ou à l'ambassade (à l'étranger).\n2. Conserver le récépissé de la plainte, exigé pour la nouvelle demande.\n3. En cas d'urgence à l'étranger empêchant le retour, l'ambassade peut délivrer un laissez-passer consulaire à validité limitée, valable uniquement pour le retour au Sénégal.\n\nCas particuliers : mineurs et voyage urgent",
+    "source": {
+      "nom": "Senego — Dossier Passeport sénégalais 2026",
+      "url": "https://senego.com/dossier/passeport-senegal",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "passeport",
+    "position": 11
+  },
+  {
+    "id": "passeport_0012",
+    "texte": "PASSEPORT — Cas particuliers : mineurs et voyage urgent\n\nEn cas d'urgence médicale, décès familial à l'étranger ou impératif professionnel, une procédure accélérée peut être sollicitée auprès de la DAF, sur présentation de justificatifs solides (certificats médicaux, billets, attestations), à l'appréciation discrétionnaire des autorités.\n\nLe mineur doit être physiquement présent pour la prise des empreintes (à partir d'un certain âge fixé par le règlement intérieur du centre). L'autorisation des deux parents est généralement requise, sauf décision de justice attribuant l'autorité parentale exclusive à l'un d'eux.\n\nQuestions fréquentes\n\nCombien de temps faut-il pour obtenir un passeport sénégalais ?\nLe délai habituel est de 2 à 4 semaines pour un dossier déposé au Sénégal, et 6 à 8 semaines pour la diaspora.",
+    "source": {
+      "nom": "Senego — Dossier Passeport sénégalais 2026",
+      "url": "https://senego.com/dossier/passeport-senegal",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "passeport",
+    "position": 12
+  },
+  {
+    "id": "passeport_0013",
+    "texte": "PASSEPORT — Combien de temps faut-il pour obtenir un passeport sénégalais ?\nLe délai habituel est de 2 à 4 semaines pour un dossier déposé au Sénégal, et 6 à 8 semaines pour la diaspora.\n\nFaut-il un certificat de nationalité pour la première demande ?\nOui, le certificat de nationalité sénégalaise délivré par le Tribunal d'Instance est exigé lors de la première demande, en complément de l'extrait d'acte de naissance.\n\nQuels documents pour un passeport de mineur ?\nActe de naissance du mineur, CNI du parent demandeur, autorisation parentale notariée (les deux parents en règle générale), photos d'identité aux normes ICAO et timbre fiscal. La présence du mineur est obligatoire pour la prise des empreintes.",
+    "source": {
+      "nom": "Senego — Dossier Passeport sénégalais 2026",
+      "url": "https://senego.com/dossier/passeport-senegal",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "passeport",
+    "position": 13
+  },
+  {
+    "id": "passeport_0014",
+    "texte": "PASSEPORT — Quels documents pour un passeport de mineur ?\nActe de naissance du mineur, CNI du parent demandeur, autorisation parentale notariée (les deux parents en règle générale), photos d'identité aux normes ICAO et timbre fiscal. La présence du mineur est obligatoire pour la prise des empreintes.\n\nCombien de temps est valable un passeport sénégalais ?\nLa validité dépend du format choisi (10 ans pour les majeurs en règle générale). Avant un voyage, vérifiez que votre passeport reste valable au minimum 6 mois après la date de retour prévue.\n\nMise à jour de la source : 5 mai 2026.",
+    "source": {
+      "nom": "Senego — Dossier Passeport sénégalais 2026",
+      "url": "https://senego.com/dossier/passeport-senegal",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "passeport",
+    "position": 14
+  },
+  {
+    "id": "etat_civil_0001",
+    "texte": "ETAT CIVIL — Actes d'état civil : naissance, mariage et décès\n\nLes actes d'état civil sont les documents fondamentaux qui jalonnent la vie de tout citoyen sénégalais. L'acte de naissance, l'acte de mariage et l'acte de décès sont établis et conservés par les centres d'état civil des mairies. Ces documents sont indispensables pour toutes les démarches administratives, de l'inscription scolaire à l'obtention du passeport, en passant par le mariage civil et les successions.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "etat_civil",
+    "position": 1
+  },
+  {
+    "id": "etat_civil_0002",
+    "texte": "ETAT CIVIL — Les actes d'état civil sont les documents fondamentaux qui jalonnent la vie de tout citoyen sénégalais. L'acte de naissance, l'acte de mariage et l'acte de décès sont établis et conservés par les centres d'état civil des mairies. Ces documents sont indispensables pour toutes les démarches administratives, de l'inscription scolaire à l'obtention du passeport, en passant par le mariage civil et les successions.\n\nLa déclaration de naissance doit être effectuée dans un délai maximum d'un mois suivant la naissance à la mairie du lieu de naissance. Les documents requis sont le certificat médical d'accouchement ou l'attestation de la sage-femme, la CNI du déclarant (père, mère ou témoin) et le livret de famille le cas échéant. La déclaration est gratuite. En cas de dépassement du délai légal, un jugement supplétif d'acte de naissance doit être obtenu auprès du tribunal, une procédure plus longue et plus coûteuse.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "etat_civil",
+    "position": 2
+  },
+  {
+    "id": "etat_civil_0003",
+    "texte": "ETAT CIVIL — La déclaration de naissance doit être effectuée dans un délai maximum d'un mois suivant la naissance à la mairie du lieu de naissance. Les documents requis sont le certificat médical d'accouchement ou l'attestation de la sage-femme, la CNI du déclarant (père, mère ou témoin) et le livret de famille le cas échéant. La déclaration est gratuite. En cas de dépassement du délai légal, un jugement supplétif d'acte de naissance doit être obtenu auprès du tribunal, une procédure plus longue et plus coûteuse.\n\nL'extrait de naissance, nécessaire pour presque toutes les démarches, s'obtient à la mairie du lieu de naissance. Le demandeur doit fournir une pièce d'identité et les informations d'identification (nom, date et lieu de naissance, noms des parents). La délivrance est généralement immédiate ou sous 24 à 48 heures. Les copies intégrales, plus détaillées, peuvent nécessiter un délai plus long. Certaines mairies ont mis en place des services de demande en ligne pour faciliter la procédure.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "etat_civil",
+    "position": 3
+  },
+  {
+    "id": "etat_civil_0004",
+    "texte": "ETAT CIVIL — L'extrait de naissance, nécessaire pour presque toutes les démarches, s'obtient à la mairie du lieu de naissance. Le demandeur doit fournir une pièce d'identité et les informations d'identification (nom, date et lieu de naissance, noms des parents). La délivrance est généralement immédiate ou sous 24 à 48 heures. Les copies intégrales, plus détaillées, peuvent nécessiter un délai plus long. Certaines mairies ont mis en place des services de demande en ligne pour faciliter la procédure.\n\nLe mariage civil au Sénégal est célébré à la mairie. Les futurs époux doivent constituer un dossier comprenant : extraits de naissance des deux époux, certificats médicaux prénuptiaux, certificats de résidence, photos d'identité, attestation de publication des bans (affichés pendant 10 jours à la mairie) et les témoins requis. Le Sénégal reconnaît trois options matrimoniales : la monogamie, la polygamie limitée à deux épouses et la polygamie limitée à quatre épouses. Ce choix, effectué lors du mariage, est inscrit dans l'acte et ne peut être modifié ultérieurement.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "etat_civil",
+    "position": 4
+  },
+  {
+    "id": "etat_civil_0005",
+    "texte": "ETAT CIVIL — Le mariage civil au Sénégal est célébré à la mairie. Les futurs époux doivent constituer un dossier comprenant : extraits de naissance des deux époux, certificats médicaux prénuptiaux, certificats de résidence, photos d'identité, attestation de publication des bans (affichés pendant 10 jours à la mairie) et les témoins requis. Le Sénégal reconnaît trois options matrimoniales : la monogamie, la polygamie limitée à deux épouses et la polygamie limitée à quatre épouses. Ce choix, effectué lors du mariage, est inscrit dans l'acte et ne peut être modifié ultérieurement.\n\nLa déclaration de décès doit être faite dans les 24 heures suivant le décès à la mairie du lieu du décès. Un certificat médical de décès délivré par un médecin est requis. L'acte de décès est indispensable pour les procédures de succession, la radiation des registres sociaux et fiscaux, et l'obtention des prestations de veuvage. En cas de décès à l'étranger, l'acte est établi par l'autorité consulaire et transcrit dans les registres de la mairie d'origine du défunt.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "etat_civil",
+    "position": 5
+  },
+  {
+    "id": "etat_civil_0006",
+    "texte": "ETAT CIVIL — La déclaration de décès doit être faite dans les 24 heures suivant le décès à la mairie du lieu du décès. Un certificat médical de décès délivré par un médecin est requis. L'acte de décès est indispensable pour les procédures de succession, la radiation des registres sociaux et fiscaux, et l'obtention des prestations de veuvage. En cas de décès à l'étranger, l'acte est établi par l'autorité consulaire et transcrit dans les registres de la mairie d'origine du défunt.\n\nQuestion fréquente : Comment obtenir un extrait de naissance au Sénégal ?\nL'extrait de naissance s'obtient à la mairie du lieu de naissance. Présentez-vous au service d'état civil avec une pièce d'identité et les informations de la personne concernée (nom complet, date et lieu de naissance, noms des parents). La délivrance est généralement immédiate. Certaines mairies proposent un service de demande en ligne.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "etat_civil",
+    "position": 6
+  },
+  {
+    "id": "casier_judiciaire_0001",
+    "texte": "CASIER JUDICIAIRE — Le bulletin n°3 du casier judiciaire\n\nLe bulletin n°3 du casier judiciaire est un document fréquemment exigé pour les recrutements, les concours administratifs et certaines démarches. Il s'obtient auprès du greffe du tribunal de grande instance du lieu de naissance. Les documents requis sont une CNI et un extrait de naissance. Le délai de délivrance est généralement de 24 à 72 heures. Pour les personnes nées à Dakar, la demande se fait au greffe du Tribunal de Grande Instance hors classe de Dakar. Une procédure de demande en ligne a été mise en place pour simplifier le processus.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "casier_judiciaire",
+    "position": 1
+  },
+  {
+    "id": "casier_judiciaire_0002",
+    "texte": "CASIER JUDICIAIRE — Le bulletin n°3 du casier judiciaire est un document fréquemment exigé pour les recrutements, les concours administratifs et certaines démarches. Il s'obtient auprès du greffe du tribunal de grande instance du lieu de naissance. Les documents requis sont une CNI et un extrait de naissance. Le délai de délivrance est généralement de 24 à 72 heures. Pour les personnes nées à Dakar, la demande se fait au greffe du Tribunal de Grande Instance hors classe de Dakar. Une procédure de demande en ligne a été mise en place pour simplifier le processus.\n\nQuestion fréquente : Comment obtenir un casier judiciaire au Sénégal ?\nLe bulletin n°3 du casier judiciaire s'obtient au greffe du tribunal de grande instance du lieu de naissance. Présentez votre CNI et un extrait de naissance. Le délai est de 24 à 72 heures. Une procédure de demande en ligne est également disponible. Le document est nécessaire pour les recrutements et les concours administratifs.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "casier_judiciaire",
+    "position": 2
+  },
+  {
+    "id": "casier_judiciaire_0003",
+    "texte": "CASIER JUDICIAIRE — Casier judiciaire et nationalité en ligne : ce qu'il faut savoir sur e-Senegal\n\nLe gouvernement du Sénégal a franchi une étape décisive dans sa transition digitale avec le lancement officiel, en mars 2026, de la plateforme « e-Senegal ». Conçu comme un guichet unique en ligne pour les citoyens et les entreprises, ce portail numérique vise à centraliser et à simplifier l'accès aux services publics.\n\nLes usagers peuvent désormais effectuer plusieurs démarches administratives courantes à distance — telles que la demande de casier judiciaire ou de certificat de nationalité — sans l'obligation de se déplacer physiquement dans les ministères et tribunaux.",
+    "source": {
+      "nom": "NDARINFO — Casier judiciaire et nationalité en ligne (e-Senegal)",
+      "url": "https://www.ndarinfo.com/Casier-judiciaire-et-nationalite-en-ligne-Ce-qu-il-faut-savoir-sur-e-Senegal_a43636.html",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "casier_judiciaire",
+    "position": 3
+  },
+  {
+    "id": "casier_judiciaire_0004",
+    "texte": "CASIER JUDICIAIRE — Les usagers peuvent désormais effectuer plusieurs démarches administratives courantes à distance — telles que la demande de casier judiciaire ou de certificat de nationalité — sans l'obligation de se déplacer physiquement dans les ministères et tribunaux.\n\nReposant sur l'interopérabilité et l'interconnexion sécurisée des différents ministères, e-Senegal permet de suivre l'avancement des dossiers en temps réel tout en réduisant drastiquement les délais de traitement et les files d'attente. Ce grand saut technologique s'inscrit dans le cadre du programme global de modernisation de l'État (« New Deal technologique ») pour garantir transparence, traçabilité et efficacité du service public.",
+    "source": {
+      "nom": "NDARINFO — Casier judiciaire et nationalité en ligne (e-Senegal)",
+      "url": "https://www.ndarinfo.com/Casier-judiciaire-et-nationalite-en-ligne-Ce-qu-il-faut-savoir-sur-e-Senegal_a43636.html",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "casier_judiciaire",
+    "position": 4
+  },
+  {
+    "id": "casier_judiciaire_0005",
+    "texte": "CASIER JUDICIAIRE — Reposant sur l'interopérabilité et l'interconnexion sécurisée des différents ministères, e-Senegal permet de suivre l'avancement des dossiers en temps réel tout en réduisant drastiquement les délais de traitement et les files d'attente. Ce grand saut technologique s'inscrit dans le cadre du programme global de modernisation de l'État (« New Deal technologique ») pour garantir transparence, traçabilité et efficacité du service public.\n\nAccessible via le web, le portail verra son offre de services s'élargir progressivement au fil des prochains mois pour couvrir l'intégralité des formalités administratives nationales.\n\nDate de publication : jeudi 26 mars 2026.",
+    "source": {
+      "nom": "NDARINFO — Casier judiciaire et nationalité en ligne (e-Senegal)",
+      "url": "https://www.ndarinfo.com/Casier-judiciaire-et-nationalite-en-ligne-Ce-qu-il-faut-savoir-sur-e-Senegal_a43636.html",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "casier_judiciaire",
+    "position": 5
+  },
+  {
+    "id": "casier_judiciaire_0006",
+    "texte": "CASIER JUDICIAIRE — Date de publication : jeudi 26 mars 2026.\n\nNote de contexte pour ce corpus : au moment de la collecte (octobre 2026), la demande de casier judiciaire est donc en transition entre la procédure historique (dépôt physique au greffe du tribunal, voir source Senego) et la nouvelle plateforme e-Senegal, dont le déploiement est progressif. Les deux procédures doivent être mentionnées comme potentiellement valables selon la juridiction concernée.",
+    "source": {
+      "nom": "NDARINFO — Casier judiciaire et nationalité en ligne (e-Senegal)",
+      "url": "https://www.ndarinfo.com/Casier-judiciaire-et-nationalite-en-ligne-Ce-qu-il-faut-savoir-sur-e-Senegal_a43636.html",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "casier_judiciaire",
+    "position": 6
+  },
+  {
+    "id": "certificat_residence_0001",
+    "texte": "CERTIFICAT RESIDENCE — Le certificat de résidence\n\nLe certificat de résidence est délivré par le chef de quartier (délégué de quartier) ou le chef de village. Ce document atteste que vous résidez effectivement à une adresse donnée. Il est généralement gratuit ou disponible moyennant une participation symbolique. Le certificat de résidence est requis pour la plupart des démarches administratives : demande de CNI, inscription scolaire, ouverture de compte bancaire, etc. Sa durée de validité varie selon les administrations qui le demandent.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "certificat_residence",
+    "position": 1
+  },
+  {
+    "id": "permis_0001",
+    "texte": "PERMIS — Le permis de conduire et le certificat d'immatriculation\n\nLe permis de conduire sénégalais est délivré par le Ministère des Transports Terrestres à travers ses services régionaux. L'obtention du permis passe par une formation théorique et pratique dans une auto-école agréée, suivie d'un examen comportant une épreuve théorique (code de la route) et une épreuve pratique (conduite).",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "permis",
+    "position": 1
+  },
+  {
+    "id": "permis_0002",
+    "texte": "PERMIS — Le permis de conduire sénégalais est délivré par le Ministère des Transports Terrestres à travers ses services régionaux. L'obtention du permis passe par une formation théorique et pratique dans une auto-école agréée, suivie d'un examen comportant une épreuve théorique (code de la route) et une épreuve pratique (conduite).\n\nLes conditions d'éligibilité varient selon la catégorie de permis demandée. Pour le permis B (voiture), le candidat doit avoir au moins 18 ans, être apte physiquement (certificat médical d'aptitude à la conduite) et résider au Sénégal. Les documents à fournir sont : une CNI ou un passeport, un certificat médical d'aptitude, quatre photos d'identité, un certificat de résidence et un timbre fiscal de 9 000 FCFA. L'inscription à l'examen se fait par l'intermédiaire de l'auto-école.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "permis",
+    "position": 2
+  },
+  {
+    "id": "permis_0003",
+    "texte": "PERMIS — Les conditions d'éligibilité varient selon la catégorie de permis demandée. Pour le permis B (voiture), le candidat doit avoir au moins 18 ans, être apte physiquement (certificat médical d'aptitude à la conduite) et résider au Sénégal. Les documents à fournir sont : une CNI ou un passeport, un certificat médical d'aptitude, quatre photos d'identité, un certificat de résidence et un timbre fiscal de 9 000 FCFA. L'inscription à l'examen se fait par l'intermédiaire de l'auto-école.\n\nLe coût total pour l'obtention du permis de conduire comprend les frais d'inscription à l'auto-école (variables selon les établissements, généralement entre 80 000 et 150 000 FCFA pour le permis B), les frais d'examen et les frais de confection du permis. Le nombre de leçons de conduite nécessaires varie selon les aptitudes du candidat. L'examen pratique se déroule sur un circuit fermé et en circulation réelle, sous la supervision d'un inspecteur du permis de conduire.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "permis",
+    "position": 3
+  },
+  {
+    "id": "permis_0004",
+    "texte": "PERMIS — Le coût total pour l'obtention du permis de conduire comprend les frais d'inscription à l'auto-école (variables selon les établissements, généralement entre 80 000 et 150 000 FCFA pour le permis B), les frais d'examen et les frais de confection du permis. Le nombre de leçons de conduite nécessaires varie selon les aptitudes du candidat. L'examen pratique se déroule sur un circuit fermé et en circulation réelle, sous la supervision d'un inspecteur du permis de conduire.\n\nLe renouvellement du permis de conduire doit être effectué avant sa date d'expiration. Les permis de conduire sénégalais récents sont des permis biométriques au format carte de crédit, conformes aux normes internationales. Le renouvellement nécessite un certificat médical d'aptitude, des photos d'identité et le paiement d'un timbre fiscal. La demande se fait auprès du service régional des transports terrestres de son lieu de résidence.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "permis",
+    "position": 4
+  },
+  {
+    "id": "permis_0005",
+    "texte": "PERMIS — Le renouvellement du permis de conduire doit être effectué avant sa date d'expiration. Les permis de conduire sénégalais récents sont des permis biométriques au format carte de crédit, conformes aux normes internationales. Le renouvellement nécessite un certificat médical d'aptitude, des photos d'identité et le paiement d'un timbre fiscal. La demande se fait auprès du service régional des transports terrestres de son lieu de résidence.\n\nLe certificat d'immatriculation (ex-carte grise) est le document qui atteste de l'enregistrement d'un véhicule au Sénégal. Pour l'immatriculation d'un véhicule neuf ou d'occasion importé, les documents requis comprennent : le certificat de dédouanement, le procès-verbal de visite technique, l'attestation d'assurance, la CNI du propriétaire et le paiement des droits d'immatriculation. La mutation (changement de propriétaire) d'un véhicule déjà immatriculé nécessite un acte de vente, l'ancien certificat d'immatriculation et une visite technique à jour.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "permis",
+    "position": 5
+  },
+  {
+    "id": "permis_0006",
+    "texte": "PERMIS — Le certificat d'immatriculation (ex-carte grise) est le document qui atteste de l'enregistrement d'un véhicule au Sénégal. Pour l'immatriculation d'un véhicule neuf ou d'occasion importé, les documents requis comprennent : le certificat de dédouanement, le procès-verbal de visite technique, l'attestation d'assurance, la CNI du propriétaire et le paiement des droits d'immatriculation. La mutation (changement de propriétaire) d'un véhicule déjà immatriculé nécessite un acte de vente, l'ancien certificat d'immatriculation et une visite technique à jour.\n\nQuestion fréquente : Comment passer le permis de conduire au Sénégal ?\nIl faut s'inscrire dans une auto-école agréée, suivre la formation théorique (code de la route) et pratique (conduite), puis passer l'examen. Conditions : avoir 18 ans minimum, un certificat médical d'aptitude, une CNI et un certificat de résidence. Le coût total (auto-école + examen) varie entre 80 000 et 150 000 FCFA pour le permis B.",
+    "source": {
+      "nom": "Senego — Guide des démarches administratives",
+      "url": "https://senego.com/services/guide-demarches",
+      "date_consultation": "2026-10-23"
+    },
+    "demarche": "permis",
+    "position": 6
+  }
+]
