@@ -16,6 +16,7 @@ chroma/
 .chroma/
 data/index/
 data/chunks.json
+eval/traces.jsonl
 
 # Notebooks
 .ipynb_checkpoints/

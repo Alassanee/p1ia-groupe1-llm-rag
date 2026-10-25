@@ -16,9 +16,10 @@ LOG_FILE = "eval/traces.jsonl"
 
 # Tarification indicative pour 1 000 000 de tokens (1M)
 PRICING_PER_1M = {
+    "openai/gpt-oss-20b": {"input": 0.10, "output": 0.50},
+    "openai/gpt-oss-120b": {"input": 0.15, "output": 0.75},
+    "qwen/qwen3.8-27b": {"input": 0.20, "output": 0.60},
     "llama-3.1-8b-instant": {"input": 0.05, "output": 0.08},
-    "llama-3.3-70b-versatile": {"input": 0.59, "output": 0.79},
-    "gemini-1.5-flash": {"input": 0.075, "output": 0.30},
     "default": {"input": 0.10, "output": 0.20},
 }
 
