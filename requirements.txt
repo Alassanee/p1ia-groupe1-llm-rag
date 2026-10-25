@@ -1,20 +1,23 @@
-# === Dépendances du projet (socle RAG) ===
-# Astuce : une fois l'environnement figé, lancer `pip freeze > requirements.txt`
+# === Dépendances du projet (RAG avec LangChain) ===
+# Astuce : une fois l'environnement figé, `pip freeze > requirements.txt`
 # pour verrouiller les versions exactes (reproductibilité = points à l'éval).
+
+# LangChain — cœur + intégrations
+langchain
+langchain-community
+langchain-text-splitters
+langchain-huggingface
+langchain-chroma
+langchain-groq
 
 # Embeddings & base vectorielle
 sentence-transformers
-faiss-cpu            # OU : chromadb   (choisir l'un des deux)
-numpy
+chromadb
 
 # Ingestion / préparation du corpus
 pypdf
 beautifulsoup4
 requests
-
-# LLM (choisir selon le fournisseur retenu)
-groq                 # si Groq
-# google-generativeai  # si Gemini
 
 # Évaluation
 pandas

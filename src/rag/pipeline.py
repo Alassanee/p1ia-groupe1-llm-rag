@@ -1,49 +1,62 @@
 """
-Cœur RAG — Alassane.
-Expose la fonction du contrat d'interface :
-    answer(question) -> {reponse, passages}
-Assemble : recherche des passages (Fatima) + génération (LLM).
+Cœur RAG (LangChain) — Alassane.
+
+Retrieval (Chroma) + génération (Groq) + citation des sources.
+Interface (contrat d'équipe) :
+    answer(question) -> {"reponse": str, "passages": [{"texte", "source"}, ...]}
+
+Prérequis : avoir lancé `python -m src.rag.build_index` au moins une fois.
 """
+import functools
 import os
 
 from dotenv import load_dotenv
-
-from src.embeddings.search import search
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_chroma import Chroma
+from langchain_groq import ChatGroq
+from langchain_core.prompts import ChatPromptTemplate
 
 load_dotenv()
 
+PERSIST_DIR = "data/index/chroma"
+EMB_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+LLM_MODEL = os.getenv("LLM_MODEL", "openai/gpt-oss-20b")
+
 SYSTEM = (
-    "Tu es un assistant qui répond UNIQUEMENT à partir des passages fournis. "
-    "Si l'information ne s'y trouve pas, réponds exactement : "
-    "« Je ne sais pas d'après le corpus. » Cite la source utilisée."
+    "Tu es un assistant qui répond aux questions sur les démarches administratives "
+    "du Sénégal UNIQUEMENT à partir des passages fournis. Si l'information ne s'y "
+    "trouve pas, réponds exactement : « Je ne sais pas d'après le corpus. » "
+    "Indique la ou les sources utilisées."
 )
-SEUIL_PERTINENCE = 0.80   # garde-fou minimal (à calibrer pendant l'éval)
+
+PROMPT = ChatPromptTemplate.from_messages([
+    ("system", SYSTEM),
+    ("human", "Passages :\n{context}\n\nQuestion : {question}"),
+])
 
 
-def build_prompt(question: str, passages: list[dict]) -> str:
-    contexte = "\n\n".join(f"[Source: {p['source']}]\n{p['texte']}" for p in passages)
-    return f"{SYSTEM}\n\n### Passages\n{contexte}\n\n### Question\n{question}\n\n### Réponse :"
+@functools.lru_cache(maxsize=1)
+def _store() -> Chroma:
+    embeddings = HuggingFaceEmbeddings(model_name=EMB_MODEL)
+    return Chroma(persist_directory=PERSIST_DIR, embedding_function=embeddings)
 
 
-def call_llm(prompt: str) -> str:
-    key = os.getenv("GROQ_API_KEY")
-    if not key:
-        return "[LLM non configuré — ajoute GROQ_API_KEY dans .env pour activer la génération]"
-    from groq import Groq
-    client = Groq(api_key=key)
-    model = os.getenv("LLM_MODEL", "llama-3.1-8b-instant")
-    resp = client.chat.completions.create(
-        model=model,
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0.1,
-    )
-    return resp.choices[0].message.content.strip()
+@functools.lru_cache(maxsize=1)
+def _llm() -> ChatGroq:
+    return ChatGroq(model=LLM_MODEL, temperature=0.1)
 
 
 def answer(question: str, k: int = 4) -> dict:
-    passages = search(question, k)
-    # Garde-fou : si rien d'assez proche, on n'invente pas.
-    if not passages or passages[0]["score"] < SEUIL_PERTINENCE:
-        return {"reponse": "Je ne sais pas d'après le corpus.", "passages": passages}
-    reponse = call_llm(build_prompt(question, passages))
+    docs = _store().similarity_search(question, k=k)
+    if not docs:
+        return {"reponse": "Je ne sais pas d'après le corpus.", "passages": []}
+
+    context = "\n\n".join(
+        f"[Source: {d.metadata.get('source', '?')}]\n{d.page_content}" for d in docs
+    )
+    reponse = (PROMPT | _llm()).invoke({"context": context, "question": question}).content
+
+    passages = [
+        {"texte": d.page_content, "source": d.metadata.get("source", "?")} for d in docs
+    ]
     return {"reponse": reponse, "passages": passages}

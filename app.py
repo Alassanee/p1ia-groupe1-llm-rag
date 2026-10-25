@@ -3,9 +3,10 @@ Point d'entrée de l'assistant RAG — Groupe 1.
 Responsable : Alassane (intégration).
 
 Prérequis (voir README) :
-    1. python -m src.ingestion.run        # corpus -> data/chunks.json
-    2. python -m src.embeddings.build_index   # -> data/index/
-    3. python app.py
+    1. pip install -r requirements.txt
+    2. .env avec GROQ_API_KEY
+    3. python -m src.rag.build_index   # construit l'index Chroma
+    4. python app.py
 """
 from src.rag.pipeline import answer
 
@@ -22,9 +23,9 @@ def main():
         result = answer(question)
         print("\n💬 Réponse :", result["reponse"])
         if result["passages"]:
-            print("\n📎 Passages utilisés :")
+            print("\n📎 Sources utilisées :")
             for p in result["passages"]:
-                print(f"  - [{p['source']}] (score {p['score']:.2f}) {p['texte'][:120]}...")
+                print(f"  - [{p['source']}] {p['texte'][:120]}...")
         print()
 
 
