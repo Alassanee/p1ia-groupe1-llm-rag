@@ -1,0 +1,283 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true,linkcolor=navy,urlcolor=steel,citecolor=navy]{hyperref}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric,fit,backgrounds,calc}
+
+% --- Palette professionnelle sobre (navy / gris, aucun vert) ---
+\definecolor{navy}{RGB}{28,52,92}
+\definecolor{steel}{RGB}{78,104,142}
+\definecolor{lightfill}{RGB}{237,241,246}
+\definecolor{rulegray}{RGB}{206,213,221}
+\definecolor{darktext}{RGB}{33,37,46}
+\definecolor{headfill}{RGB}{28,52,92}
+
+\color{darktext}
+
+% --- Titres ---
+\titleformat{\section}{\color{navy}\large\bfseries}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\color{navy}\normalsize\bfseries}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+
+\setlist[itemize]{nosep,leftmargin=1.4em,topsep=2pt}
+\setlist[enumerate]{nosep,leftmargin=1.6em,topsep=2pt}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+% --- En-tête / pied ---
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{rulegray}\leaders\hrule height \headrulewidth\hfill}}
+\fancyhead[L]{\footnotesize\color{steel}Assistant RAG — Démarches administratives}
+\fancyhead[R]{\footnotesize\color{steel}P1IA · Groupe 1}
+\fancyfoot[C]{\footnotesize\color{steel}\thepage}
+
+% --- Styles TikZ ---
+\tikzset{
+  box/.style={rectangle, rounded corners=2.5pt, draw=navy, line width=0.7pt, fill=lightfill,
+    text=navy, align=center, minimum height=10mm, minimum width=24mm, font=\footnotesize, inner sep=4pt},
+  store/.style={cylinder, shape border rotate=90, aspect=0.22, draw=navy, line width=0.7pt,
+    fill=lightfill, text=navy, align=center, font=\footnotesize, minimum height=13mm, minimum width=18mm},
+  io/.style={rectangle, draw=steel, line width=0.7pt, fill=white, text=navy, align=center,
+    font=\footnotesize\itshape, minimum height=9mm, minimum width=22mm, inner sep=4pt},
+  guard/.style={rectangle, rounded corners=2.5pt, draw=steel, line width=0.7pt, fill=white,
+    text=navy, align=center, font=\footnotesize, minimum height=10mm, minimum width=24mm, inner sep=4pt},
+  arr/.style={-{Stealth[length=2.2mm]}, draw=steel, line width=0.9pt},
+  darr/.style={-{Stealth[length=2.2mm]}, draw=steel, line width=0.8pt, dashed},
+  lbl/.style={font=\scriptsize\itshape, text=steel},
+}
+
+\begin{document}
+
+% ====================== TITRE ======================
+\begin{flushleft}
+{\color{navy}\bfseries\LARGE Assistant RAG sur les démarches\\[2pt] administratives du Sénégal}\\[6pt]
+{\color{steel}\large Rapport de présentation}
+\end{flushleft}
+\vspace{2pt}
+{\color{rulegray}\hrule height 1.2pt}
+\vspace{6pt}
+\begin{tabular}{@{}ll@{}}
+\textbf{Formation} & Certification IA — Orange Digital Center (P1IA) \\
+\textbf{Groupe} & Groupe 1 \\
+\textbf{Membres} & Alassane (lead / intégration), Tayba (corpus), Fatima (retrieval), \\
+ & Khadidiatou (évaluation), Abdou Aziz (fonctionnalités avancées) \\
+\textbf{Date} & 25 octobre 2026 \\
+\end{tabular}
+\vspace{4pt}
+{\color{rulegray}\hrule height 0.6pt}
+\vspace{8pt}
+
+% ====================== 1. OBJECTIF ======================
+\section{Objectif}
+Construire un assistant capable de répondre à des questions sur un corpus de documents
+\textbf{publics en français}, en \textbf{citant les passages utilisés}, puis de
+\textbf{mesurer la qualité} de ses réponses. Corpus retenu : les \textbf{démarches
+administratives du Sénégal} (carte nationale d'identité, passeport, état civil, casier
+judiciaire, certificat de résidence, permis de conduire).
+
+% ====================== 2. CORPUS ======================
+\section{Corpus}
+\begin{itemize}
+  \item \textbf{8 documents} texte regroupés par démarche dans \texttt{data/corpus/}, découpés en \textbf{37 segments} (\emph{chunks}) indexés.
+  \item \textbf{Sources publiques}, citées et tracées dans \texttt{data/sources.json} : guide des démarches et dossier passeport (Senego), fiche CNI (OSIRIS / Le Soleil), article e-Senegal (NDARINFO).
+  \item Aucune donnée personnelle ni confidentielle.
+  \item Point notable : sur le casier judiciaire, le corpus documente \emph{deux procédures concurrentes} (dépôt physique au greffe \emph{vs} plateforme e-Senegal en déploiement), utile pour tester la nuance.
+\end{itemize}
+
+% ====================== 3. ARCHITECTURE ======================
+\section{Architecture du pipeline}
+Le système se compose de deux phases : une \textbf{indexation} hors-ligne (le corpus est
+transformé en base vectorielle) et une \textbf{interrogation} en ligne (la question est
+confrontée à l'index puis au modèle de langage).
+
+\begin{figure}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[node distance=10mm]
+  % Indexation
+  \node[box] (corpus) {Corpus\\\texttt{.txt}};
+  \node[box, right=of corpus] (split) {Découpage\\(chunks 800/150)};
+  \node[box, right=of split] (emb) {Embeddings\\multilingues};
+  \node[store, right=of emb] (chroma) {Chroma};
+  \node[lbl, above=1mm of split] {Indexation (hors-ligne)};
+  \draw[arr] (corpus) -- (split);
+  \draw[arr] (split) -- (emb);
+  \draw[arr] (emb) -- (chroma);
+
+  % Interrogation
+  \node[io, below=16mm of corpus] (q) {Question};
+  \node[box, right=of q] (search) {Recherche\\(top-$k$)};
+  \node[box, right=of search] (llm) {Prompt + LLM\\(Groq)};
+  \node[io, right=of llm] (ans) {Réponse\\+ sources};
+  \node[lbl, below=1mm of search] {Interrogation (en ligne)};
+  \draw[arr] (q) -- (search);
+  \draw[arr] (search) -- (llm);
+  \draw[arr] (llm) -- (ans);
+  \draw[darr] (chroma) -- (search) node[lbl, midway, right] {index};
+\end{tikzpicture}}
+\caption{Pipeline RAG : indexation du corpus (haut) et interrogation avec citation des sources (bas).}
+\end{figure}
+
+% ====================== 4. FLUX INTEGRE ======================
+\section{Flux intégré (fonctions avancées)}
+Une seule fonction, \texttt{answer\_advanced()}, enchaîne les garde-fous, l'appel d'outils
+éventuel, le c\oe ur RAG et l'observabilité.
+
+\begin{figure}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[node distance=9mm]
+  \node[io] (q) {Question};
+  \node[guard, right=of q] (guard) {Garde-fous\\injection / PII};
+  \node[box, right=of guard] (rag) {C\oe ur RAG\\(recherche + génération)};
+  \node[guard, right=of rag] (obs) {Observabilité\\latence / tokens / coût};
+  \node[io, right=of obs] (ans) {Réponse\\+ sources};
+  \node[box, above=9mm of rag] (tool) {Function calling\\(barème des frais)};
+  \node[guard, below=9mm of guard, fill=lightfill] (block) {Refus\\(requête bloquée)};
+
+  \draw[arr] (q) -- (guard);
+  \draw[arr] (guard) -- (rag);
+  \draw[arr] (rag) -- (obs);
+  \draw[arr] (obs) -- (ans);
+  \draw[darr] (guard) |- (tool) node[lbl, pos=0.25, right] {si coût};
+  \draw[darr] (tool) -| (rag);
+  \draw[darr] (guard) -- (block) node[lbl, midway, right] {si injection};
+\end{tikzpicture}}
+\caption{Flux \texttt{answer\_advanced()} : sécurité en amont, outils métier, RAG, puis mesure.}
+\end{figure}
+
+% ====================== 5. CHOIX TECHNIQUES ======================
+\section{Choix techniques (justifiés)}
+\begin{tabularx}{\textwidth}{@{}l l X@{}}
+\toprule
+\textbf{Composant} & \textbf{Choix} & \textbf{Justification} \\
+\midrule
+Framework & LangChain & standard, composable (loader, splitter, retriever, LLM). \\
+Embeddings & MiniLM multilingue & gratuit, bon en français, léger. \\
+Base vectorielle & Chroma (persistée) & simple, local, gratuit, relançable. \\
+Découpage & 800 car. / recouvrement 150 & compromis contexte / précision du passage. \\
+LLM & Groq \texttt{gpt-oss-20b} & gratuit, rapide, bon en français. \\
+Garde-fous & règles + seuil + masquage & sécurité sans coût LLM additionnel. \\
+\bottomrule
+\end{tabularx}
+
+\vspace{2pt}
+Aucun budget requis : API Groq gratuite et modèle d'embeddings ouvert exécuté localement.
+
+% ====================== 6. PROTOCOLE ======================
+\section{Protocole d'évaluation}
+Jeu de \textbf{15 questions} (\texttt{eval/questions.json}) : \textbf{12 factuelles} (avec
+réponse de référence et source attendue) et \textbf{3 pièges} (hors-sujet, injection de
+prompt, données personnelles). Exécution : \texttt{python -m src.evaluation.run\_eval}.
+Trois mesures :
+\begin{itemize}
+  \item \textbf{Pertinence du retrieval} : la source attendue figure-t-elle dans les passages renvoyés ? (objectif, automatique)
+  \item \textbf{Exactitude} : la réponse contient-elle les informations clés attendues ?
+  \item \textbf{Garde-fous} : hors-sujet refusé, injection bloquée, données personnelles masquées.
+\end{itemize}
+
+% ====================== 7. RESULTATS ======================
+\section{Résultats}
+\begin{tabular}{@{}l r@{}}
+\toprule
+\textbf{Métrique} & \textbf{Score} \\
+\midrule
+Pertinence du retrieval & 11 / 12 \quad(91\%) \\
+Exactitude (mots-clés) & 10 / 12 \quad(83\%) \\
+Garde-fous (pièges) & 3 / 3 \quad(100\%) \\
+Latence typique & $\approx$ 0,6 à 3 s / requête \\
+Coût estimé & $\approx$ 0,0001 à 0,0003 \$ / requête \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+Les trois pièges sont correctement gérés : hors-sujet $\rightarrow$
+« Je ne sais pas d'après le corpus », injection $\rightarrow$ requête bloquée,
+numéro d'identité $\rightarrow$ masqué avant traitement.
+
+% ====================== 8. ANALYSE DES ECHECS ======================
+\section{Analyse des échecs}
+Deux « échecs » seulement, et l'analyse est instructive.
+
+\textbf{(1) \texttt{passeport\_docs} — véritable échec de retrieval.}
+La question « Quels documents pour une première demande de passeport adulte ? » reçoit
+« Je ne sais pas d'après le corpus ». Le dossier passeport étant long, il génère beaucoup de
+segments ; pour cette formulation, les passages « documents requis » d'autres démarches sont
+sémantiquement proches et le bon segment passeport ne remonte pas dans le top-$k$. C'est une
+\emph{confusion inter-documents} classique en RAG. \emph{Pistes} : augmenter $k$, filtrer par
+métadonnée « démarche », ou affiner le découpage.
+
+\textbf{(2) \texttt{passeport\_prix} — faux échec (artefact de mesure).}
+La réponse est en réalité correcte (« 20000 FCFA », via l'outil fiscal) mais comptée comme
+fausse car l'outil écrit « 20000 » sans séparateur, alors que le mot-clé attendu est
+« 20\,000 ». Notre métrique par mots-clés est donc \emph{sensible au formatage} : après
+revue manuelle, \textbf{11 réponses sur 12 sont réellement correctes}.
+
+\textbf{Enseignement.} La qualité dépend autant du \emph{retrieval} (le bon passage doit
+remonter) que de la \emph{mesure} (une métrique trop littérale sous-estime la performance) :
+il faut croiser métrique automatique et relecture.
+
+% ====================== 9/10. LIMITES & AMELIORATIONS ======================
+\section{Limites et améliorations}
+\textbf{Limites :} corpus restreint (8 documents, couverture partielle) ; pas de filtrage par
+démarche au retrieval ; métrique d'exactitude approximative ; dépendance à un modèle gratuit.
+
+\textbf{Améliorations :} filtre par métadonnée « démarche » ou \emph{reranking} ; test
+d'autres embeddings et tailles de segment (via \texttt{src/rag/config.py}) ; enrichissement
+du corpus ; évaluation complémentaire avec RAGAS (faithfulness, context precision/recall).
+
+% ====================== 11. BONUS ======================
+\section{Fonctionnalités avancées (implémentées)}
+\begin{itemize}
+  \item \textbf{Function calling} : outil « barème officiel » (frais, timbres, pièces par démarche), déclenché sur les questions de coût.
+  \item \textbf{Observabilité} : latence, tokens, coût estimé par requête, journalisés dans \texttt{eval/traces.jsonl}.
+  \item \textbf{Garde-fous} : blocage des injections de prompt, masquage des données personnelles (NIN, téléphone, courriel), refus hors-sujet.
+\end{itemize}
+
+% ====================== 12. REPARTITION ======================
+\section{Répartition du travail}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\toprule
+\textbf{Membre} & \textbf{Contribution} \\
+\midrule
+Alassane & C\oe ur RAG LangChain, intégration, pipeline unifié. \\
+Tayba & Corpus (collecte, nettoyage) et provenance des sources. \\
+Fatima & Réglage du retrieval (modèle d'embeddings, segments, $k$). \\
+Khadidiatou & Jeu d'évaluation, métriques, analyse des échecs. \\
+Abdou Aziz & Garde-fous, observabilité, function calling. \\
+\bottomrule
+\end{tabularx}
+
+% ====================== 13. DEMO ======================
+\section{Plan de démonstration ($\approx$ 5 min)}
+\begin{enumerate}
+  \item Problème et corpus (30 s).
+  \item Questions en direct : une factuelle (réponse + sources), une de coût (outil), un piège d'injection (blocage) (2 min).
+  \item Résultats d'évaluation (1 min).
+  \item L'échec \texttt{passeport\_docs} et les limites (1 min).
+  \item Observabilité (latence / coût) en direct (30 s).
+\end{enumerate}
+
+\vfill
+{\color{rulegray}\hrule height 0.6pt}
+\vspace{3pt}
+{\footnotesize\color{steel}Évaluation réalisée le 25 octobre 2026 sur 15 questions — reproductible via
+\texttt{python -m src.evaluation.run\_eval} (voir \texttt{eval/results.md}).}
+
+\end{document}
