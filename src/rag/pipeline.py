@@ -18,8 +18,8 @@ from langchain_core.prompts import ChatPromptTemplate
 
 load_dotenv()
 
-PERSIST_DIR = "data/index/chroma"
-EMB_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+from src.rag.config import PERSIST_DIR, EMB_MODEL, TOP_K
+
 LLM_MODEL = os.getenv("LLM_MODEL", "openai/gpt-oss-20b")
 
 SYSTEM = (
@@ -46,7 +46,7 @@ def _llm() -> ChatGroq:
     return ChatGroq(model=LLM_MODEL, temperature=0.1)
 
 
-def answer(question: str, k: int = 4) -> dict:
+def answer(question: str, k: int = TOP_K) -> dict:
     docs = _store().similarity_search(question, k=k)
     if not docs:
         return {"reponse": "Je ne sais pas d'après le corpus.", "passages": []}

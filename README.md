@@ -1,90 +1,72 @@
-# Assistant RAG sur corpus de documents — P1IA Groupe 1
+# Assistant RAG — Démarches administratives du Sénégal
 
-Projet de certification IA (Orange Digital Center). Un assistant qui **répond à des questions sur un corpus de documents publics en français**, en citant les passages utilisés, puis **mesure la qualité** de ses réponses.
+**P1IA · Groupe 1 — Certification IA (Orange Digital Center)**
 
-## 🎯 Fonctionnalités
+Un assistant qui répond à des questions sur un corpus de documents publics (démarches administratives sénégalaises) en **citant ses sources**, construit avec **LangChain**, puis évalué.
 
-**Socle (obligatoire)**
-- Pipeline **RAG** : découpage → embeddings → base vectorielle → génération **avec citation des passages**.
-- **Évaluation** : ~20 questions de référence + mesure (fidélité au corpus, pertinence du retrieval).
+## 🧱 Stack
 
-**Bonus (si le temps le permet)**
-- Function calling · Observabilité (coût + latence) · Garde-fous (hors-sujet, injection, données perso).
+| Étape | Techno |
+|---|---|
+| Chargement du corpus | LangChain `DirectoryLoader` (`data/corpus/**/*.txt`) |
+| Découpage | `RecursiveCharacterTextSplitter` (800 / overlap 150) |
+| Embeddings | `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` |
+| Base vectorielle | **Chroma** (persistée dans `data/index/chroma`) |
+| Génération (LLM) | **Groq** `openai/gpt-oss-20b` (gratuit) |
+| Évaluation | jeu de questions + métriques (fidélité, pertinence) |
 
-## 📚 Corpus
-
-**Démarches administratives du Sénégal** (CNI, passeport, état civil, casier judiciaire, certificat de résidence, permis…).
-Sources **publiques** uniquement, citées dans le rapport : Guide des démarches (Senego), Annuaire des services publics, pages consulaires officielles. Aucune donnée personnelle ou confidentielle.
-
-## 👥 Équipe & modules
-
-| Membre | Module | Dossier |
-|---|---|---|
-| Alassane | Cœur RAG + intégration | `src/rag/`, `app.py` |
-| Tayba | Ingestion du corpus | `src/ingestion/`, `data/` |
-| Fatima | Embeddings + base vectorielle | `src/embeddings/` |
-| Khadidiatou | Évaluation | `src/evaluation/`, `eval/` |
-| Khadidiatou + Tayba | Rapport | `docs/` |
-| Abdou Aziz | Bonus (si le temps le permet) | `src/advanced/` |
-
-## 🚀 Installation & lancement (relançable)
+## 🚀 Installation & lancement
 
 ```bash
-# 1. Cloner
 git clone https://github.com/Alassanee/p1ia-groupe1-llm-rag.git
 cd p1ia-groupe1-llm-rag
 
-# 2. Environnement
-python3 -m venv .venv
-source .venv/bin/activate        # Windows : .venv\Scripts\activate
+python3 -m venv .venv && source .venv/bin/activate   # Windows : .venv\Scripts\activate
 pip install -r requirements.txt
 
-# 3. Clé API (ne jamais commiter .env)
-cp .env.example .env             # puis coller sa clé Groq ou Gemini
+cp .env.example .env            # puis colle ta clé GROQ_API_KEY
 
-# 4. Préparer le corpus (génère data/chunks.json)
-python -m src.ingestion.run
-
-# 5. Construire l'index vectoriel
-python -m src.embeddings.build_index
-
-# 6. Lancer l'assistant
-python app.py
+python -m src.rag.build_index   # construit l'index vectoriel à partir du corpus
+python app.py                   # pose tes questions
 ```
 
-> ℹ️ Les commandes 4 et 5 dépendent des modules en cours de développement — voir le README de chaque dossier `src/`.
+> Obtenir une clé Groq gratuite : https://console.groq.com
 
 ## 📂 Structure
 
 ```
-├── app.py              # point d'entrée (Alassane)
+├── app.py                  # point d'entrée (CLI)
+├── data/
+│   ├── corpus/             # corpus .txt par démarche (cni, passeport, …)
+│   └── sources.json        # bibliographie des sources
 ├── src/
-│   ├── ingestion/      # corpus → chunks (Tayba)
-│   ├── embeddings/     # index + search() (Fatima)
-│   ├── rag/            # answer() : retrieval + génération (Alassane)
-│   ├── evaluation/     # métriques (Khadidiatou)
-│   └── advanced/       # bonus (Abdou Aziz)
-├── data/               # corpus + chunks.json
-├── eval/               # questions.json + résultats
-└── docs/               # rapport
+│   ├── rag/                # cœur RAG (LangChain)
+│   │   ├── config.py       #   réglages retriever (Fatima)
+│   │   ├── build_index.py  #   indexation Chroma
+│   │   └── pipeline.py     #   answer() : retrieval + génération + citations
+│   ├── ingestion/          # constitution / provenance du corpus (Tayba)
+│   ├── evaluation/         # jeu de test + métriques (Khadidiatou)
+│   └── advanced/           # bonus : garde-fous, observabilité, outils (Abdou)
+├── eval/                   # questions.json + résultats
+├── docs/                   # rapport + sources
+└── requirements.txt
 ```
 
-## 🔗 Contrats d'interface entre modules
+## 👥 Rôles
 
-- **Ingestion** → produit `data/chunks.json` : `[{id, texte, source, position}]`
-- **Embeddings** → expose `search(question, k) -> [{texte, source, score}]`
-- **RAG** → expose `answer(question) -> {reponse, passages}`
-
-## 🤝 Travailler en équipe
-
-Voir **[GUIDE_GIT.md](GUIDE_GIT.md)** : clone, branches, commits, Pull Requests, zéro conflit.
+| Membre | Rôle | Où |
+|---|---|---|
+| **Alassane** | Cœur RAG + intégration | `src/rag/` (build_index, pipeline), `app.py` |
+| **Fatima** | Qualité du retrieval (modèle, chunks, `k`) | `src/rag/config.py` |
+| **Tayba** | Corpus + provenance | `data/corpus/`, `src/ingestion/` |
+| **Khadidiatou** | Évaluation | `src/evaluation/`, `eval/` |
+| **Abdou Aziz** | Bonus (garde-fous, observabilité, function calling) | `src/advanced/` |
+| **Khadidiatou + Tayba** | Rapport | `docs/` |
 
 ## 📦 Livrables
+- Ce dépôt (code + README relançable)
+- `docs/rapport.md` : résultats d'évaluation, erreurs, améliorations
+- Démo ~5 min
 
-- Ce dépôt (code + README relançable).
-- `docs/rapport.*` : résultats d'évaluation, erreurs, améliorations.
-- Démo ~5 min.
-
-## ⏰ Deadline
-
-**22 octobre 23h59** — dépôt `p1ia_groupe-1_llm-projet` sur Google Drive + lien WhatsApp.
+## 🤝 Travail d'équipe
+Workflow Git (branches, PR, zéro conflit) : voir **[GUIDE_GIT.md](GUIDE_GIT.md)**.

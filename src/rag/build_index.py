@@ -12,10 +12,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 
-CORPUS_DIR = "data/corpus"
-PERSIST_DIR = "data/index/chroma"
-# Modèle multilingue gratuit, bon en français, sans préfixe particulier à gérer.
-EMB_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+from src.rag.config import CORPUS_DIR, PERSIST_DIR, EMB_MODEL, CHUNK_SIZE, CHUNK_OVERLAP
 
 
 def main() -> None:
@@ -32,8 +29,8 @@ def main() -> None:
         return
 
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=800,
-        chunk_overlap=150,
+        chunk_size=CHUNK_SIZE,
+        chunk_overlap=CHUNK_OVERLAP,
         separators=["\n\n", "\n", ". ", " ", ""],
     )
     chunks = splitter.split_documents(docs)

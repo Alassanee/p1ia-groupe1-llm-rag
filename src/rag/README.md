@@ -1,15 +1,17 @@
-# Module RAG (cœur) — Alassane
+# Module RAG (LangChain) — Alassane
 
-**But :** assembler retrieval + génération.
+Cœur du projet : indexation du corpus + réponse aux questions avec citations.
 
-**À exposer :** `answer(question: str) -> dict`
-retour : `{ "reponse": "...", "passages": [ {"texte","source","score"}, ... ] }`
+## Fichiers
+- `config.py` — **réglages du retriever (périmètre de Fatima)** : modèle d'embeddings, taille des chunks, nombre de passages `k`.
+- `build_index.py` — charge `data/corpus/**/*.txt`, découpe (`RecursiveCharacterTextSplitter`), encode et construit l'index **Chroma** (`data/index/chroma`).
+- `pipeline.py` — `answer(question)` : recherche Chroma + génération **Groq** + citation des sources.
 
-**Étapes :**
-1. `passages = search(question, k)` (module embeddings de Fatima).
-2. Construire le prompt : consignes + passages + question.
-3. Appeler le LLM (Groq/Gemini via `.env`).
-4. Retourner la réponse **et** les passages cités.
-5. Brancher le tout dans `app.py`.
+## Utilisation
+```bash
+python -m src.rag.build_index   # (ré)indexe le corpus
+python app.py                   # pose des questions
+```
 
-**Garde-fou minimal :** si aucun passage pertinent, répondre « je ne sais pas d'après le corpus ».
+## Contrat d'interface
+`answer(question) -> {"reponse": str, "passages": [{"texte", "source"}, ...]}`
