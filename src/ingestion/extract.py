@@ -26,10 +26,17 @@ def extract_html(html: str) -> str:
     for tag in soup(NOISE_TAGS):
         tag.decompose()
 
+    # On repère d'abord les éléments à retirer, PUIS on les supprime.
+    # (Supprimer pendant l'itération fait tomber sur des éléments déjà
+    #  détruits -> AttributeError: 'NoneType' object has no attribute 'get'.)
+    noisy = []
     for el in soup.find_all(True):
-        classes = " ".join(el.get("class", [])).lower()
+        classes = " ".join(el.get("class", []) or []).lower()
         el_id = (el.get("id") or "").lower()
         if any(hint in classes or hint in el_id for hint in NOISE_CLASS_HINTS):
+            noisy.append(el)
+    for el in noisy:
+        if not getattr(el, "decomposed", False):
             el.decompose()
 
     main = soup.find("article") or soup.find("main") or soup.body or soup
