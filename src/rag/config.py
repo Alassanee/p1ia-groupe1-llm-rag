@@ -17,5 +17,7 @@ EMB_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 CHUNK_SIZE = 800
 CHUNK_OVERLAP = 150
 
-# Recherche : nombre de passages renvoyés par question
-TOP_K = 4
+# Recherche
+TOP_K = 8              # nombre de passages renvoyés par question
+FETCH_K = 25           # candidats examinés avant diversification (MMR)
+SEARCH_TYPE = "mmr"    # "mmr" (diversifie, évite qu'un seul doc monopolise) ou "similarity"
