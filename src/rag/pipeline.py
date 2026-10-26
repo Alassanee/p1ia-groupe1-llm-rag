@@ -18,7 +18,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 load_dotenv()
 
-from src.rag.config import PERSIST_DIR, EMB_MODEL, TOP_K
+from src.rag.config import PERSIST_DIR, EMB_MODEL, TOP_K, FETCH_K, SEARCH_TYPE
 
 LLM_MODEL = os.getenv("LLM_MODEL", "openai/gpt-oss-20b")
 
@@ -47,7 +47,11 @@ def _llm() -> ChatGroq:
 
 
 def answer(question: str, k: int = TOP_K) -> dict:
-    docs = _store().similarity_search(question, k=k)
+    retriever = _store().as_retriever(
+        search_type=SEARCH_TYPE,
+        search_kwargs={"k": k, "fetch_k": FETCH_K},
+    )
+    docs = retriever.invoke(question)
     if not docs:
         return {"reponse": "Je ne sais pas d'après le corpus.", "passages": []}
 

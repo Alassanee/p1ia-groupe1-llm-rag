@@ -13,6 +13,7 @@ from src.advanced.guardrails import validate_input
 from src.advanced.observability import QueryTrace
 from src.advanced.tools import execute_tool_call
 from src.rag.pipeline import answer, LLM_MODEL
+from src.rag.config import TOP_K
 
 FEE_KEYWORDS = ["coût", "cout", "combien", "prix", "frais", "timbre", "tarif"]
 DEMARCHES = [
@@ -21,7 +22,7 @@ DEMARCHES = [
 ]
 
 
-def answer_advanced(question: str, k: int = 4) -> Dict[str, Any]:
+def answer_advanced(question: str, k: int = TOP_K) -> Dict[str, Any]:
     """Point d'entrée enrichi : sécurité + outils + RAG + observabilité."""
     trace = QueryTrace(question)
 
