@@ -23,5 +23,8 @@ requests
 pandas
 ragas                # optionnel (faithfulness, context precision/recall)
 
+# Interface web (chatbot NdimbalIA)
+streamlit
+
 # Utilitaires
 python-dotenv

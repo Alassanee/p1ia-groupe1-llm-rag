@@ -32,6 +32,16 @@ python app.py                   # pose tes questions
 
 > Obtenir une clé Groq gratuite : https://console.groq.com
 
+## 💬 Interface chatbot — NdimbalIA
+
+Une interface web conviviale (« ndimbal » = *aide* en wolof) pour poser ses questions comme à un chatbot :
+
+```bash
+streamlit run app_ui.py
+```
+
+Elle s'ouvre dans le navigateur (http://localhost:8501) : saisie de question, réponse **avec sources citées**, et badges (garde-fou, outil, données masquées) + latence/coût. L'alternative en ligne de commande reste `python app.py`.
+
 ## 📂 Structure
 
 ```
